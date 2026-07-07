@@ -1,0 +1,15 @@
+Always prefer composition.
+
+Never duplicate components.
+
+Every node is reusable.
+
+Every page is generated from JSON.
+
+No hardcoded UI.
+
+Keep code clean.
+
+Always use TypeScript.
+
+Think about future scalability even though this prototype is static.

@@ -1,0 +1,327 @@
+[
+  {
+    "slug": "expressing-reasons",
+    "title": "Expressing Reasons",
+    "titleDe": "Gründe ausdrücken",
+    "type": "concept",
+    "status": "complete",
+    "summary": "Learn five different ways to express reasons and causes in German — from subordinating conjunctions to connecting adverbs.",
+    "levels": ["A2", "B1"],
+    "tags": ["grammar", "conjunctions", "adverbs", "sentence-structure", "reasoning"],
+    "related": [
+      { "slug": "subordinate-clause", "type": "grammar", "relation": "requires" },
+      { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
+      { "slug": "conjunction", "type": "grammar", "relation": "category" },
+      { "slug": "travel", "type": "theme", "relation": "used-in" },
+      { "slug": "daily-life", "type": "theme", "relation": "used-in" },
+      { "slug": "formal-language", "type": "skill", "relation": "relevant-to" }
+    ],
+    "overview": "German offers several ways to express reasons and causes. While English mainly relies on 'because' and 'therefore', German distinguishes between words that change sentence structure (like **weil**) and words that don't (like **denn**). Understanding these differences is key to sounding natural in German.\n\nThe five core words in this concept are:\n- **weil** — because (subordinating conjunction)\n- **denn** — because/for (coordinating conjunction)\n- **deshalb** — therefore/that's why (connecting adverb)\n- **deswegen** — therefore/that's why (connecting adverb)\n- **daher** — therefore/hence (connecting adverb, slightly formal)\n\nMastering these words means understanding not just their meaning, but how they reshape the sentence around them.",
+    "words": ["weil", "denn", "deshalb", "deswegen", "daher"],
+    "blocks": [
+      {
+        "level": "A2",
+        "category": "Grammatik",
+        "title": "Basic Reasons with 'weil' and 'denn'",
+        "content": "When you start expressing reasons, you mainly need two tools: **weil** and **denn**.\n\nThey both mean 'because', but they behave differently grammatically. **weil** is a subordinating conjunction, which means it kicks the conjugated verb to the very end of the sentence. **denn** is a coordinating conjunction, which means it occupies 'position 0' and doesn't change the word order of the following clause.",
+        "tables": [
+          {
+            "title": "Word Order Comparison",
+            "headers": ["Word", "Grammar Type", "Verb Position", "Sentence Example"],
+            "rows": [
+              {
+                "label": "weil",
+                "values": ["Subordinating Conjunction", "End of clause", "..., weil ich müde bin."]
+              },
+              {
+                "label": "denn",
+                "values": ["Coordinating Conjunction", "Position 2 (no inversion)", "..., denn ich bin müde."]
+              },
+              {
+                "label": "deshalb",
+                "values": ["Connecting Adverb", "Position 2 (inversion)", "..., deshalb bin ich müde."]
+              },
+              {
+                "label": "deswegen",
+                "values": ["Connecting Adverb", "Position 2 (inversion)", "..., deswegen bin ich müde."]
+              },
+              {
+                "label": "daher",
+                "values": ["Connecting Adverb", "Position 2 (inversion)", "..., daher bin ich müde."]
+              }
+            ]
+          }
+        ],
+        "examples": [
+          {
+            "de": "Ich bleibe zu Hause, weil ich krank bin.",
+            "en": "I'm staying home because I am sick.",
+            "highlight": ["weil", "bin"]
+          },
+          {
+            "de": "Ich bleibe zu Hause, denn ich bin krank.",
+            "en": "I'm staying home for I am sick.",
+            "highlight": ["denn"]
+          }
+        ]
+      },
+      {
+        "level": "B1",
+        "category": "Grammatik",
+        "title": "Shifting to Results: 'deshalb' and 'deswegen'",
+        "content": "Once you master giving reasons, the next step is stating results ('therefore' or 'that's why'). For this, we use connecting adverbs like **deshalb** and **deswegen**.\n\nBecause these are adverbs (not conjunctions), they take up the first position in their clause. This triggers verb-second inversion: the verb comes immediately after the adverb, pushing the subject to position 3.",
+        "examples": [
+          {
+            "de": "Ich bin krank, deshalb bleibe ich zu Hause.",
+            "en": "I am sick, therefore I am staying home.",
+            "highlight": ["deshalb", "bleibe", "ich"]
+          },
+          {
+            "de": "Der Zug hatte Verspätung, deswegen haben wir den Flug verpasst.",
+            "en": "The train was delayed, that's why we missed the flight.",
+            "highlight": ["deswegen", "haben", "wir"]
+          }
+        ]
+      },
+      {
+        "level": "B2",
+        "category": "Sätze",
+        "title": "Formal and Written Contexts: 'daher'",
+        "content": "In more advanced or formal German (B2 and C1), you will often encounter **daher**. It means exactly the same as 'deshalb' or 'deswegen', but it elevates the register of your language.\n\nIt behaves grammatically the same way, triggering verb-second inversion.",
+        "examples": [
+          {
+            "de": "Die Nachfrage ist gestiegen, daher haben wir die Produktion erhöht.",
+            "en": "Demand has risen, hence we have increased production.",
+            "highlight": ["daher", "haben"]
+          }
+        ]
+      }
+    ],
+    "comparisons": [
+      {
+        "items": ["weil", "denn", "deshalb", "deswegen", "daher"],
+        "dimension": "Complete comparison of all reason words",
+        "rows": [
+          {
+            "attribute": "Meaning",
+            "values": ["because", "because / for", "therefore", "therefore", "therefore / hence"]
+          },
+          {
+            "attribute": "Type",
+            "values": ["Subordinating conjunction", "Coordinating conjunction", "Connecting adverb", "Connecting adverb", "Connecting adverb"]
+          },
+          {
+            "attribute": "Word Order",
+            "values": ["Verb goes to end", "Normal word order", "Verb-second (inversion)", "Verb-second (inversion)", "Verb-second (inversion)"]
+          },
+          {
+            "attribute": "Position",
+            "values": ["Introduces reason clause", "Connects two main clauses", "Starts result clause", "Starts result clause", "Starts result clause"]
+          },
+          {
+            "attribute": "Register",
+            "values": ["Neutral", "Slightly formal / written", "Neutral", "Neutral / informal", "Formal / written"]
+          },
+          {
+            "attribute": "CEFR Level",
+            "values": ["A2", "A2", "B1", "B1", "B1"]
+          },
+          {
+            "attribute": "Frequency",
+            "values": ["Very common", "Common", "Common", "Common", "Less common"]
+          }
+        ]
+      }
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Ich bleibe zu Hause, weil ich bin krank.",
+        "correct": "Ich bleibe zu Hause, weil ich krank bin.",
+        "explanation": "After 'weil', the conjugated verb moves to the end of the clause. This is the subordinate clause rule.",
+        "level": "A2"
+      },
+      {
+        "incorrect": "Denn ich bin müde, gehe ich ins Bett.",
+        "correct": "Ich bin müde, denn ich habe viel gearbeitet.",
+        "explanation": "'Denn' introduces the reason, not the result. It connects two main clauses where the second clause explains why.",
+        "level": "A2"
+      },
+      {
+        "incorrect": "Deshalb ich gehe nach Hause.",
+        "correct": "Deshalb gehe ich nach Hause.",
+        "explanation": "'Deshalb' is a connecting adverb that takes position 1, pushing the verb to position 2 (inversion). The subject comes after the verb.",
+        "level": "B1"
+      },
+      {
+        "incorrect": "Ich lerne Deutsch, weil deshalb möchte ich in Berlin arbeiten.",
+        "correct": "Ich lerne Deutsch, weil ich in Berlin arbeiten möchte. / Ich möchte in Berlin arbeiten, deshalb lerne ich Deutsch.",
+        "explanation": "Don't combine 'weil' and 'deshalb' in the same clause. 'Weil' introduces the reason, 'deshalb' introduces the result. They serve opposite functions.",
+        "level": "B1"
+      }
+    ],
+    "learningPath": [
+      {
+        "order": 1,
+        "title": "Start with weil",
+        "description": "Learn the most common way to say 'because'. Focus on the verb-final word order.",
+        "nodeSlug": "weil",
+        "nodeType": "word"
+      },
+      {
+        "order": 2,
+        "title": "Compare with denn",
+        "description": "Learn the alternative 'because' that doesn't change word order. Understand when to use each.",
+        "nodeSlug": "denn",
+        "nodeType": "word"
+      },
+      {
+        "order": 3,
+        "title": "Express results with deshalb",
+        "description": "Shift from stating reasons to stating results. Learn the verb-second inversion pattern.",
+        "nodeSlug": "deshalb",
+        "nodeType": "word"
+      },
+      {
+        "order": 4,
+        "title": "Add variety with deswegen",
+        "description": "A synonym for 'deshalb' — practice using both interchangeably to sound more natural.",
+        "nodeSlug": "deswegen",
+        "nodeType": "word"
+      },
+      {
+        "order": 5,
+        "title": "Master formal tone with daher",
+        "description": "Learn the more formal 'therefore' for written German and professional contexts.",
+        "nodeSlug": "daher",
+        "nodeType": "word"
+      },
+      {
+        "order": 6,
+        "title": "Practice in context",
+        "description": "Use all five words in real conversations. Start with Travel scenarios.",
+        "nodeSlug": "travel",
+        "nodeType": "theme"
+      }
+    ]
+  },
+  {
+    "slug": "prepositions",
+    "title": "Prepositions",
+    "titleDe": "Präpositionen",
+    "status": "complete",
+    "summary": "Mastering prepositions is the key to unlocking German cases.",
+    "levels": ["A1", "A2", "B1", "B2", "C1"],
+    "tags": ["grammar", "cases", "prepositions"],
+    "related": [],
+    "overview": "Prepositions in German are the ultimate deciders of cases. They act like little traffic cops, directing the following noun into the Accusative, Dative, or Genitive case regardless of the noun's actual role in the sentence.",
+    "words": [],
+    "blocks": [
+      {
+        "level": "A2",
+        "category": "Grammatik",
+        "title": "Accusative-Only Prepositions",
+        "content": "These prepositions **always** force the following noun into the Accusative case. Memorize them with the acronym **FUDGE** (für, um, durch, gegen, entlang - though we will skip entlang for now).",
+        "tables": [
+          {
+            "title": "Accusative Prepositions",
+            "headers": ["Preposition", "Meaning", "Example", "Translation"],
+            "rows": [
+              { "label": "durch", "values": ["through", "Wir gehen durch den Park.", "We walk through the park."] },
+              { "label": "für", "values": ["for", "Das Geschenk ist für dich.", "The gift is for you."] },
+              { "label": "gegen", "values": ["against / around", "Er spielt gegen den Meister.", "He plays against the champion."] },
+              { "label": "ohne", "values": ["without", "Ich trinke Kaffee ohne Zucker.", "I drink coffee without sugar."] },
+              { "label": "um", "values": ["around / at", "Wir sitzen um den Tisch.", "We sit around the table."] }
+            ]
+          }
+        ]
+      },
+      {
+        "level": "A2",
+        "category": "Praxis",
+        "title": "Dative-Only Prepositions",
+        "content": "These prepositions **always** trigger the Dative case. The classic rhyme is: *aus, außer, bei, mit, nach, seit, von, zu*.",
+        "tables": [
+          {
+            "title": "Dative Prepositions",
+            "headers": ["Preposition", "Meaning", "Example"],
+            "rows": [
+              { "label": "aus", "values": ["out of / from", "Er kommt aus dem Haus."] },
+              { "label": "bei", "values": ["at / near / with", "Ich wohne bei meinen Eltern."] },
+              { "label": "mit", "values": ["with", "Ich fahre mit dem Auto."] },
+              { "label": "nach", "values": ["after / to (cities)", "Wir fahren nach Berlin."] },
+              { "label": "seit", "values": ["since / for", "Ich lerne seit einem Jahr."] },
+              { "label": "von", "values": ["from / of", "Das Buch ist von ihm."] },
+              { "label": "zu", "values": ["to", "Ich gehe zum (zu dem) Bahnhof."] }
+            ]
+          }
+        ],
+        "practices": [
+          {
+            "type": "gap-fill",
+            "prompt": "Ich fahre ___ dem Zug.",
+            "answer": "mit",
+            "explanation": "To say 'by train' (or literally 'with the train'), use the dative preposition 'mit'."
+          }
+        ]
+      },
+      {
+        "level": "B1",
+        "category": "Sätze",
+        "title": "The Two-Way Kings (Wechselpräpositionen)",
+        "content": "These 9 prepositions can take **either** Accusative or Dative. They take **Accusative** when there is movement to a destination (Where to? / Wohin?). They take **Dative** when indicating a static position (Where? / Wo?).\n\nThe 9 prepositions are: *an, auf, hinter, in, neben, über, unter, vor, zwischen*.",
+        "tables": [
+          {
+            "title": "Movement (Acc) vs Static (Dat)",
+            "headers": ["Preposition", "Accusative (Movement)", "Dative (Position)"],
+            "rows": [
+              { "label": "in", "values": ["Ich gehe in die Schule. (I go into the school)", "Ich bin in der Schule. (I am in the school)"] },
+              { "label": "auf", "values": ["Er legt das Buch auf den Tisch.", "Das Buch liegt auf dem Tisch."] }
+            ]
+          }
+        ],
+        "syntaxPlaygrounds": [
+          {
+            "tokens": [
+              { "word": "Ich", "role": "Subject (Nominative)", "isClickable": true },
+              { "word": "gehe", "role": "Verb", "isClickable": true },
+              { "word": "in", "role": "Two-Way Preposition (Movement -> Accusative)", "isClickable": true },
+              { "word": "den", "role": "Accusative Article (der -> den)", "isClickable": true },
+              { "word": "Park.", "role": "Object", "isClickable": false }
+            ],
+            "translation": "I go into the park."
+          },
+          {
+            "tokens": [
+              { "word": "Ich", "role": "Subject (Nominative)", "isClickable": true },
+              { "word": "bin", "role": "Verb", "isClickable": true },
+              { "word": "im", "role": "in + dem (Dative)", "isClickable": true },
+              { "word": "Park.", "role": "Object", "isClickable": false }
+            ],
+            "translation": "I am in the park."
+          }
+        ]
+      },
+      {
+        "level": "B2",
+        "category": "Grammatik",
+        "title": "Advanced Genitive Prepositions",
+        "content": "These prepositions take the Genitive case. In spoken, informal German, people often use the Dative instead, but Genitive is strictly required for formal writing and higher CEFR levels.",
+        "tables": [
+          {
+            "title": "Genitive Prepositions",
+            "headers": ["Preposition", "Meaning", "Example"],
+            "rows": [
+              { "label": "während", "values": ["during", "während des Spiels (during the game)"] },
+              { "label": "trotz", "values": ["despite", "trotz des Regens (despite the rain)"] },
+              { "label": "wegen", "values": ["because of", "wegen des Wetters (because of the weather)"] },
+              { "label": "innerhalb", "values": ["inside of / within", "innerhalb der Stadt (inside the city)"] }
+            ]
+          }
+        ]
+      }
+    ],
+    "comparisons": [],
+    "commonMistakes": [],
+    "learningPath": []
+  }
+]

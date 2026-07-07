@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "travel",
+    "title": "Travel",
+    "titleDe": "Reisen",
+    "type": "theme",
+    "status": "complete",
+    "summary": "How to express reasons and consequences in travel situations — from booking explanations to flight delays.",
+    "levels": ["A2", "B1"],
+    "tags": ["travel", "tourism", "airport", "hotel", "transportation"],
+    "related": [
+      { "slug": "expressing-reasons", "type": "concept", "relation": "used-in" },
+      { "slug": "weil", "type": "word", "relation": "features" },
+      { "slug": "denn", "type": "word", "relation": "features" },
+      { "slug": "deshalb", "type": "word", "relation": "features" },
+      { "slug": "daily-life", "type": "theme", "relation": "related" },
+      { "slug": "speaking", "type": "skill", "relation": "develops" }
+    ],
+    "description": "Travel is one of the most practical contexts for expressing reasons in German. Whether you're explaining why you chose a destination, dealing with delays, or asking for help — 'weil', 'denn', 'deshalb' and their cousins show up constantly.\n\nThese conversations show how native speakers naturally use reason words in travel situations.",
+    "conversations": [
+      {
+        "title": "At the Airport — Flight Delay",
+        "context": "A traveler is asking about their delayed flight at the information desk.",
+        "lines": [
+          { "speaker": "Reisender", "de": "Entschuldigung, warum hat der Flug Verspätung?", "en": "Excuse me, why is the flight delayed?" },
+          { "speaker": "Mitarbeiterin", "de": "Der Flug hat Verspätung, weil es in München starken Nebel gibt.", "en": "The flight is delayed because there is heavy fog in Munich.", "highlight": ["weil"] },
+          { "speaker": "Reisender", "de": "Oh nein. Und wann fliegen wir dann?", "en": "Oh no. And when do we fly then?" },
+          { "speaker": "Mitarbeiterin", "de": "Wir wissen es noch nicht, denn die Situation ändert sich ständig.", "en": "We don't know yet, for the situation keeps changing.", "highlight": ["denn"] },
+          { "speaker": "Reisender", "de": "Ich habe einen Anschlusszug. Deshalb ist es wichtig, dass ich pünktlich ankomme.", "en": "I have a connecting train. That's why it's important that I arrive on time.", "highlight": ["Deshalb"] },
+          { "speaker": "Mitarbeiterin", "de": "Ich verstehe. Daher empfehle ich Ihnen, am Schalter eine Umbuchung zu prüfen.", "en": "I understand. Therefore I recommend you check for rebooking at the counter.", "highlight": ["Daher"] }
+        ]
+      },
+      {
+        "title": "At the Hotel — Room Change",
+        "context": "A guest is requesting a different room at the hotel reception.",
+        "lines": [
+          { "speaker": "Gast", "de": "Guten Abend. Ich möchte gerne das Zimmer wechseln, weil es zu laut ist.", "en": "Good evening. I would like to change rooms because it's too noisy.", "highlight": ["weil"] },
+          { "speaker": "Rezeptionistin", "de": "Das tut mir leid. Die Baustelle nebenan ist leider sehr laut, deswegen hatten wir heute schon mehrere Beschwerden.", "en": "I'm sorry. The construction site next door is unfortunately very loud, that's why we've already had several complaints today.", "highlight": ["deswegen"] },
+          { "speaker": "Gast", "de": "Gibt es ein ruhigeres Zimmer?", "en": "Is there a quieter room?" },
+          { "speaker": "Rezeptionistin", "de": "Ja, wir haben noch Zimmer auf der anderen Seite. Die sind ruhiger, denn sie zeigen zum Garten.", "en": "Yes, we still have rooms on the other side. They're quieter, for they face the garden.", "highlight": ["denn"] },
+          { "speaker": "Gast", "de": "Perfekt, deshalb nehme ich das gerne!", "en": "Perfect, that's why I'll gladly take it!", "highlight": ["deshalb"] }
+        ]
+      },
+      {
+        "title": "Planning a Trip — Choosing a Destination",
+        "context": "Two friends are planning a vacation together.",
+        "lines": [
+          { "speaker": "Anna", "de": "Ich möchte nach Wien fahren, weil ich die Museen dort liebe.", "en": "I want to go to Vienna because I love the museums there.", "highlight": ["weil"] },
+          { "speaker": "Max", "de": "Hmm, Wien ist schön, aber ich war letztes Jahr schon dort. Deswegen würde ich lieber nach Hamburg fahren.", "en": "Hmm, Vienna is nice, but I was there last year already. That's why I'd rather go to Hamburg.", "highlight": ["Deswegen"] },
+          { "speaker": "Anna", "de": "Hamburg ist auch toll, denn es gibt dort den Hafen und tolle Restaurants.", "en": "Hamburg is great too, for there's the harbor and great restaurants there.", "highlight": ["denn"] },
+          { "speaker": "Max", "de": "Und die Elbphilharmonie! Daher wäre es auch kulturell interessant.", "en": "And the Elbphilharmonie! Hence it would be culturally interesting too.", "highlight": ["Daher"] },
+          { "speaker": "Anna", "de": "Okay, du hast mich überzeugt, deshalb buchen wir Hamburg!", "en": "Okay, you convinced me, that's why we'll book Hamburg!", "highlight": ["deshalb"] }
+        ]
+      }
+    ],
+    "words": ["weil", "denn", "deshalb", "deswegen", "daher"]
+  },
+  {
+    "slug": "daily-life",
+    "title": "Daily Life",
+    "titleDe": "Alltag",
+    "type": "theme",
+    "status": "stub",
+    "summary": "Expressing reasons in everyday situations — work, shopping, appointments, and daily routines.",
+    "levels": ["A2", "B1"],
+    "tags": ["daily-life", "routine", "work", "shopping"],
+    "related": [
+      { "slug": "expressing-reasons", "type": "concept", "relation": "used-in" },
+      { "slug": "weil", "type": "word", "relation": "features" },
+      { "slug": "deshalb", "type": "word", "relation": "features" },
+      { "slug": "travel", "type": "theme", "relation": "related" },
+      { "slug": "speaking", "type": "skill", "relation": "develops" }
+    ],
+    "description": "Everyday conversations are full of reasons and explanations. From telling your boss why you're late to explaining to a friend why you can't come to dinner — this theme covers it all.",
+    "conversations": [],
+    "words": ["weil", "denn", "deshalb", "deswegen"]
+  }
+]

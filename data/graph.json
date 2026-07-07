@@ -1,0 +1,365 @@
+{
+  "nodes": [
+    {
+      "slug": "prepositions",
+      "title": "Prepositions",
+      "titleDe": "Präpositionen",
+      "type": "concept",
+      "status": "complete",
+      "summary": "Mastering prepositions is the key to unlocking German cases.",
+      "levels": ["A1", "A2", "B1", "B2", "C1"],
+      "tags": ["grammar", "cases", "prepositions"],
+      "related": []
+    },
+    {
+      "slug": "expressing-reasons",
+      "title": "Expressing Reasons",
+      "titleDe": "Gründe ausdrücken",
+      "type": "concept",
+      "status": "complete",
+      "summary": "Learn five different ways to express reasons and causes in German — from subordinating conjunctions to connecting adverbs.",
+      "levels": ["A2", "B1"],
+      "tags": ["grammar", "conjunctions", "adverbs", "sentence-structure", "reasoning"],
+      "related": [
+        { "slug": "subordinate-clause", "type": "grammar", "relation": "requires" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
+        { "slug": "conjunction", "type": "grammar", "relation": "category" },
+        { "slug": "travel", "type": "theme", "relation": "used-in" },
+        { "slug": "daily-life", "type": "theme", "relation": "used-in" },
+        { "slug": "formal-language", "type": "skill", "relation": "relevant-to" }
+      ]
+    },
+    {
+      "slug": "weil",
+      "title": "weil",
+      "titleDe": "weil",
+      "type": "word",
+      "status": "complete",
+      "summary": "The most common way to say 'because' in German. Changes word order — the verb moves to the end.",
+      "levels": ["A2"],
+      "tags": ["conjunction", "subordinating", "reason", "because", "word-order"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
+        { "slug": "denn", "type": "word", "relation": "compare-with" },
+        { "slug": "subordinate-clause", "type": "grammar", "relation": "requires" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "affects" },
+        { "slug": "travel", "type": "theme", "relation": "used-in" },
+        { "slug": "daily-life", "type": "theme", "relation": "used-in" }
+      ]
+    },
+    {
+      "slug": "denn",
+      "title": "denn",
+      "titleDe": "denn",
+      "type": "word",
+      "status": "complete",
+      "summary": "An alternative way to say 'because' that keeps normal word order. Slightly more formal than 'weil'.",
+      "levels": ["A2"],
+      "tags": ["conjunction", "coordinating", "reason", "because", "formal"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
+        { "slug": "weil", "type": "word", "relation": "compare-with" },
+        { "slug": "conjunction", "type": "grammar", "relation": "is-a" },
+        { "slug": "formal-language", "type": "skill", "relation": "relevant-to" },
+        { "slug": "writing", "type": "skill", "relation": "used-in" }
+      ]
+    },
+    {
+      "slug": "deshalb",
+      "title": "deshalb",
+      "titleDe": "deshalb",
+      "type": "word",
+      "status": "complete",
+      "summary": "Means 'therefore' or 'that's why'. Introduces the result or consequence. Causes verb-second inversion.",
+      "levels": ["B1"],
+      "tags": ["adverb", "connecting", "result", "therefore", "inversion"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
+        { "slug": "deswegen", "type": "word", "relation": "synonym" },
+        { "slug": "daher", "type": "word", "relation": "synonym" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
+        { "slug": "speaking", "type": "skill", "relation": "used-in" },
+        { "slug": "writing", "type": "skill", "relation": "used-in" }
+      ]
+    },
+    {
+      "slug": "deswegen",
+      "title": "deswegen",
+      "titleDe": "deswegen",
+      "type": "word",
+      "status": "complete",
+      "summary": "Synonym for 'deshalb' — means 'therefore' or 'that's why'. Slightly more casual. Same grammar rules.",
+      "levels": ["B1"],
+      "tags": ["adverb", "connecting", "result", "therefore", "inversion", "informal"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
+        { "slug": "deshalb", "type": "word", "relation": "synonym" },
+        { "slug": "daher", "type": "word", "relation": "synonym" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
+        { "slug": "daily-life", "type": "theme", "relation": "used-in" },
+        { "slug": "speaking", "type": "skill", "relation": "used-in" }
+      ]
+    },
+    {
+      "slug": "daher",
+      "title": "daher",
+      "titleDe": "daher",
+      "type": "word",
+      "status": "complete",
+      "summary": "A more formal way to say 'therefore' or 'hence'. Common in written German and academic contexts.",
+      "levels": ["B1"],
+      "tags": ["adverb", "connecting", "result", "therefore", "formal", "written"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
+        { "slug": "deshalb", "type": "word", "relation": "synonym" },
+        { "slug": "deswegen", "type": "word", "relation": "synonym" },
+        { "slug": "formal-language", "type": "skill", "relation": "relevant-to" },
+        { "slug": "writing", "type": "skill", "relation": "used-in" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "requires" }
+      ]
+    },
+    {
+      "slug": "subordinate-clause",
+      "title": "Subordinate Clauses",
+      "titleDe": "Nebensätze",
+      "type": "grammar",
+      "status": "stub",
+      "summary": "Subordinate clauses are dependent clauses introduced by conjunctions like 'weil', 'dass', or 'wenn'. The conjugated verb moves to the end of the clause.",
+      "levels": ["A2", "B1"],
+      "tags": ["grammar", "clause", "subordinate", "verb-position"],
+      "related": [
+        { "slug": "weil", "type": "word", "relation": "example-of" },
+        { "slug": "sentence-order", "type": "grammar", "relation": "related" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-by" }
+      ]
+    },
+    {
+      "slug": "sentence-order",
+      "title": "Sentence Order",
+      "titleDe": "Satzstellung",
+      "type": "grammar",
+      "status": "stub",
+      "summary": "German sentence order follows strict rules around verb position. The verb is always in second position in main clauses and final position in subordinate clauses.",
+      "levels": ["A2", "B1", "B2"],
+      "tags": ["grammar", "word-order", "verb-position", "inversion"],
+      "related": [
+        { "slug": "subordinate-clause", "type": "grammar", "relation": "related" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-by" },
+        { "slug": "weil", "type": "word", "relation": "example-of" },
+        { "slug": "deshalb", "type": "word", "relation": "example-of" }
+      ]
+    },
+    {
+      "slug": "conjunction",
+      "title": "Conjunctions",
+      "titleDe": "Konjunktionen",
+      "type": "grammar",
+      "status": "stub",
+      "summary": "Conjunctions connect clauses and sentences. German distinguishes between coordinating conjunctions (und, oder, denn) and subordinating conjunctions (weil, dass, wenn).",
+      "levels": ["A2", "B1"],
+      "tags": ["grammar", "conjunction", "coordinating", "subordinating"],
+      "related": [
+        { "slug": "weil", "type": "word", "relation": "example-of" },
+        { "slug": "denn", "type": "word", "relation": "example-of" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-by" },
+        { "slug": "subordinate-clause", "type": "grammar", "relation": "related" }
+      ]
+    },
+    {
+      "slug": "travel",
+      "title": "Travel",
+      "titleDe": "Reisen",
+      "type": "theme",
+      "status": "complete",
+      "summary": "How to express reasons and consequences in travel situations — from booking explanations to flight delays.",
+      "levels": ["A2", "B1"],
+      "tags": ["travel", "tourism", "airport", "hotel", "transportation"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-in" },
+        { "slug": "weil", "type": "word", "relation": "features" },
+        { "slug": "denn", "type": "word", "relation": "features" },
+        { "slug": "deshalb", "type": "word", "relation": "features" },
+        { "slug": "daily-life", "type": "theme", "relation": "related" },
+        { "slug": "speaking", "type": "skill", "relation": "develops" }
+      ]
+    },
+    {
+      "slug": "daily-life",
+      "title": "Daily Life",
+      "titleDe": "Alltag",
+      "type": "theme",
+      "status": "stub",
+      "summary": "Expressing reasons in everyday situations — work, shopping, appointments, and daily routines.",
+      "levels": ["A2", "B1"],
+      "tags": ["daily-life", "routine", "work", "shopping"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-in" },
+        { "slug": "weil", "type": "word", "relation": "features" },
+        { "slug": "deshalb", "type": "word", "relation": "features" },
+        { "slug": "travel", "type": "theme", "relation": "related" },
+        { "slug": "speaking", "type": "skill", "relation": "develops" }
+      ]
+    },
+    {
+      "slug": "speaking",
+      "title": "Speaking",
+      "titleDe": "Sprechen",
+      "type": "skill",
+      "status": "stub",
+      "summary": "Oral communication skills for German learners. Practice speaking naturally using reason words and connectors in conversations.",
+      "levels": ["A2", "B1", "B2"],
+      "tags": ["skill", "speaking", "oral", "communication", "conversation"],
+      "related": [
+        { "slug": "travel", "type": "theme", "relation": "practiced-in" },
+        { "slug": "daily-life", "type": "theme", "relation": "practiced-in" },
+        { "slug": "deshalb", "type": "word", "relation": "uses" },
+        { "slug": "deswegen", "type": "word", "relation": "uses" }
+      ]
+    },
+    {
+      "slug": "writing",
+      "title": "Writing",
+      "titleDe": "Schreiben",
+      "type": "skill",
+      "status": "stub",
+      "summary": "Written communication skills for German learners. Focus on using formal connectors like 'denn' and 'daher' in essays, emails, and reports.",
+      "levels": ["B1", "B2"],
+      "tags": ["skill", "writing", "written", "formal", "essays"],
+      "related": [
+        { "slug": "denn", "type": "word", "relation": "uses" },
+        { "slug": "daher", "type": "word", "relation": "uses" },
+        { "slug": "deshalb", "type": "word", "relation": "uses" },
+        { "slug": "formal-language", "type": "skill", "relation": "related" }
+      ]
+    },
+    {
+      "slug": "common-mistakes",
+      "title": "Common Mistakes",
+      "titleDe": "Häufige Fehler",
+      "type": "mistake",
+      "status": "stub",
+      "summary": "Common errors German learners make when expressing reasons — wrong word order after 'weil', confusing 'denn' and 'deshalb', and more.",
+      "levels": ["A2", "B1"],
+      "tags": ["mistakes", "errors", "word-order", "learners"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "documents-mistakes-in" },
+        { "slug": "weil", "type": "word", "relation": "common-error" },
+        { "slug": "denn", "type": "word", "relation": "common-error" },
+        { "slug": "deshalb", "type": "word", "relation": "common-error" }
+      ]
+    },
+    {
+      "slug": "formal-language",
+      "title": "Formal Language",
+      "titleDe": "Formelle Sprache",
+      "type": "skill",
+      "status": "stub",
+      "summary": "Understanding register in German — when to use formal words like 'daher' and 'denn' versus casual alternatives like 'deswegen'.",
+      "levels": ["B1", "B2"],
+      "tags": ["skill", "formal", "register", "politeness", "professional"],
+      "related": [
+        { "slug": "daher", "type": "word", "relation": "uses" },
+        { "slug": "denn", "type": "word", "relation": "uses" },
+        { "slug": "writing", "type": "skill", "relation": "related" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "relevant-to" }
+      ]
+    },
+    {
+      "slug": "a2",
+      "title": "A2 — Elementary",
+      "titleDe": "A2 — Grundlegende Kenntnisse",
+      "type": "level",
+      "status": "stub",
+      "summary": "CEFR level A2 covers basic everyday expressions. Learners can communicate in simple routine tasks and describe their background and environment.",
+      "levels": ["A2"],
+      "tags": ["level", "cefr", "a2", "elementary", "beginner"],
+      "related": [
+        { "slug": "weil", "type": "word", "relation": "teaches" },
+        { "slug": "denn", "type": "word", "relation": "teaches" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "introduces" },
+        { "slug": "b1", "type": "level", "relation": "leads-to" }
+      ]
+    },
+    {
+      "slug": "b1",
+      "title": "B1 — Intermediate",
+      "titleDe": "B1 — Fortgeschrittene Sprachverwendung",
+      "type": "level",
+      "status": "stub",
+      "summary": "CEFR level B1 enables learners to deal with most travel situations and describe experiences, events, hopes and ambitions.",
+      "levels": ["B1"],
+      "tags": ["level", "cefr", "b1", "intermediate"],
+      "related": [
+        { "slug": "deshalb", "type": "word", "relation": "teaches" },
+        { "slug": "deswegen", "type": "word", "relation": "teaches" },
+        { "slug": "daher", "type": "word", "relation": "teaches" },
+        { "slug": "a2", "type": "level", "relation": "builds-on" },
+        { "slug": "expressing-reasons", "type": "concept", "relation": "deepens" }
+      ]
+    }
+  ],
+  "edges": [
+    { "source": "weil", "sourceType": "word", "target": "expressing-reasons", "targetType": "concept", "label": "belongs to" },
+    { "source": "denn", "sourceType": "word", "target": "expressing-reasons", "targetType": "concept", "label": "belongs to" },
+    { "source": "deshalb", "sourceType": "word", "target": "expressing-reasons", "targetType": "concept", "label": "belongs to" },
+    { "source": "deswegen", "sourceType": "word", "target": "expressing-reasons", "targetType": "concept", "label": "belongs to" },
+    { "source": "daher", "sourceType": "word", "target": "expressing-reasons", "targetType": "concept", "label": "belongs to" },
+
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "subordinate-clause", "targetType": "grammar", "label": "requires" },
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "sentence-order", "targetType": "grammar", "label": "requires" },
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "conjunction", "targetType": "grammar", "label": "category" },
+
+    { "source": "weil", "sourceType": "word", "target": "subordinate-clause", "targetType": "grammar", "label": "requires" },
+    { "source": "weil", "sourceType": "word", "target": "sentence-order", "targetType": "grammar", "label": "affects" },
+    { "source": "denn", "sourceType": "word", "target": "conjunction", "targetType": "grammar", "label": "is a" },
+    { "source": "deshalb", "sourceType": "word", "target": "sentence-order", "targetType": "grammar", "label": "requires" },
+    { "source": "deswegen", "sourceType": "word", "target": "sentence-order", "targetType": "grammar", "label": "requires" },
+    { "source": "daher", "sourceType": "word", "target": "sentence-order", "targetType": "grammar", "label": "requires" },
+
+    { "source": "weil", "sourceType": "word", "target": "denn", "targetType": "word", "label": "compare with" },
+    { "source": "deshalb", "sourceType": "word", "target": "deswegen", "targetType": "word", "label": "synonym" },
+    { "source": "deshalb", "sourceType": "word", "target": "daher", "targetType": "word", "label": "synonym" },
+    { "source": "deswegen", "sourceType": "word", "target": "daher", "targetType": "word", "label": "synonym" },
+
+    { "source": "weil", "sourceType": "word", "target": "travel", "targetType": "theme", "label": "used in" },
+    { "source": "weil", "sourceType": "word", "target": "daily-life", "targetType": "theme", "label": "used in" },
+    { "source": "denn", "sourceType": "word", "target": "travel", "targetType": "theme", "label": "used in" },
+    { "source": "deshalb", "sourceType": "word", "target": "travel", "targetType": "theme", "label": "used in" },
+    { "source": "deswegen", "sourceType": "word", "target": "daily-life", "targetType": "theme", "label": "used in" },
+
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "travel", "targetType": "theme", "label": "used in" },
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "daily-life", "targetType": "theme", "label": "used in" },
+    { "source": "travel", "sourceType": "theme", "target": "daily-life", "targetType": "theme", "label": "related" },
+
+    { "source": "deshalb", "sourceType": "word", "target": "speaking", "targetType": "skill", "label": "used in" },
+    { "source": "deswegen", "sourceType": "word", "target": "speaking", "targetType": "skill", "label": "used in" },
+    { "source": "denn", "sourceType": "word", "target": "writing", "targetType": "skill", "label": "used in" },
+    { "source": "daher", "sourceType": "word", "target": "writing", "targetType": "skill", "label": "used in" },
+    { "source": "deshalb", "sourceType": "word", "target": "writing", "targetType": "skill", "label": "used in" },
+
+    { "source": "denn", "sourceType": "word", "target": "formal-language", "targetType": "skill", "label": "relevant to" },
+    { "source": "daher", "sourceType": "word", "target": "formal-language", "targetType": "skill", "label": "relevant to" },
+    { "source": "expressing-reasons", "sourceType": "concept", "target": "formal-language", "targetType": "skill", "label": "relevant to" },
+
+    { "source": "travel", "sourceType": "theme", "target": "speaking", "targetType": "skill", "label": "develops" },
+    { "source": "daily-life", "sourceType": "theme", "target": "speaking", "targetType": "skill", "label": "develops" },
+    { "source": "writing", "sourceType": "skill", "target": "formal-language", "targetType": "skill", "label": "related" },
+
+    { "source": "common-mistakes", "sourceType": "mistake", "target": "expressing-reasons", "targetType": "concept", "label": "documents mistakes in" },
+    { "source": "common-mistakes", "sourceType": "mistake", "target": "weil", "targetType": "word", "label": "common error" },
+    { "source": "common-mistakes", "sourceType": "mistake", "target": "denn", "targetType": "word", "label": "common error" },
+    { "source": "common-mistakes", "sourceType": "mistake", "target": "deshalb", "targetType": "word", "label": "common error" },
+
+    { "source": "a2", "sourceType": "level", "target": "weil", "targetType": "word", "label": "teaches" },
+    { "source": "a2", "sourceType": "level", "target": "denn", "targetType": "word", "label": "teaches" },
+    { "source": "a2", "sourceType": "level", "target": "expressing-reasons", "targetType": "concept", "label": "introduces" },
+    { "source": "b1", "sourceType": "level", "target": "deshalb", "targetType": "word", "label": "teaches" },
+    { "source": "b1", "sourceType": "level", "target": "deswegen", "targetType": "word", "label": "teaches" },
+    { "source": "b1", "sourceType": "level", "target": "daher", "targetType": "word", "label": "teaches" },
+    { "source": "b1", "sourceType": "level", "target": "expressing-reasons", "targetType": "concept", "label": "deepens" },
+    { "source": "a2", "sourceType": "level", "target": "b1", "targetType": "level", "label": "leads to" },
+
+    { "source": "subordinate-clause", "sourceType": "grammar", "target": "sentence-order", "targetType": "grammar", "label": "related" },
+    { "source": "conjunction", "sourceType": "grammar", "target": "subordinate-clause", "targetType": "grammar", "label": "related" }
+  ]
+}
