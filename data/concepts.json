@@ -17,6 +17,11 @@
       { "slug": "formal-language", "type": "skill", "relation": "relevant-to" }
     ],
     "overview": "German offers several ways to express reasons and causes. While English mainly relies on 'because' and 'therefore', German distinguishes between words that change sentence structure (like **weil**) and words that don't (like **denn**). Understanding these differences is key to sounding natural in German.\n\nThe five core words in this concept are:\n- **weil** — because (subordinating conjunction)\n- **denn** — because/for (coordinating conjunction)\n- **deshalb** — therefore/that's why (connecting adverb)\n- **deswegen** — therefore/that's why (connecting adverb)\n- **daher** — therefore/hence (connecting adverb, slightly formal)\n\nMastering these words means understanding not just their meaning, but how they reshape the sentence around them.",
+    "levelOverviews": {
+      "A2": "At A2, you'll learn the two most essential words for saying 'because' in German: **weil** and **denn**. Focus on how **weil** sends the verb to the end of the sentence, while **denn** keeps normal word order.",
+      "B1": "At B1, you graduate from 'because' to 'therefore'. The connecting adverbs **deshalb** and **deswegen** let you express results and consequences, using verb-second inversion to sound more advanced.",
+      "B2": "At B2, you add **daher** to your arsenal — a formal, written-register word for 'therefore' that elevates your German in essays, presentations, and professional contexts."
+    },
     "words": ["weil", "denn", "deshalb", "deswegen", "daher"],
     "blocks": [
       {
@@ -214,6 +219,11 @@
     "tags": ["grammar", "cases", "prepositions"],
     "related": [],
     "overview": "Prepositions in German are the ultimate deciders of cases. They act like little traffic cops, directing the following noun into the Accusative, Dative, or Genitive case regardless of the noun's actual role in the sentence.",
+    "levelOverviews": {
+      "A2": "At A2, focus on memorizing which prepositions always take the Accusative case (**FUDGE**: für, um, durch, gegen) and which always take the Dative (**aus, bei, mit, nach, seit, von, zu**). The case is fixed — no exceptions.",
+      "B1": "At B1, you tackle the infamous **Wechselpräpositionen** — the 9 two-way prepositions that switch between Accusative (movement) and Dative (position). This is where German prepositions become truly dynamic.",
+      "B2": "At B2/C1, you master the Genitive prepositions used in formal writing: **während, trotz, wegen, innerhalb**. These elevate your register from conversational to professional."
+    },
     "words": [],
     "blocks": [
       {

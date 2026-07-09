@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
-import { X, BookOpen, Layers, AlertTriangle, ArrowRight } from "lucide-react";
+import { X, BookOpen, Layers, AlertTriangle, ArrowRight, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getConcept } from "@/lib/data";
 import { PremiumGrammarTable } from "@/components/ui/premium-grammar-table";
@@ -18,6 +18,9 @@ interface UnifiedConceptViewProps {
 
 const ALL_LEVELS: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const ALL_CATEGORIES: BlockCategory[] = ["Wortschatz", "Grammatik", "Sätze", "Praxis"];
+const LEVEL_ORDER: Record<CEFRLevel, number> = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4, C2: 5 };
+
+type LanguageMode = "both" | "de" | "en";
 
 export function UnifiedConceptView({
   slug,
@@ -26,6 +29,7 @@ export function UnifiedConceptView({
 }: UnifiedConceptViewProps) {
   const [activeLevels, setActiveLevels] = useState<CEFRLevel[]>([]);
   const [activeCategories, setActiveCategories] = useState<BlockCategory[]>([]);
+  const [languageMode, setLanguageMode] = useState<LanguageMode>("both");
   
   const concept = getConcept(slug);
 
@@ -65,6 +69,46 @@ export function UnifiedConceptView({
     );
   };
 
+  // ─── STRICT SEQUENTIAL ORDERING INVARIANT ───
+  // Sort blocks by CEFR difficulty: A1 → A2 → B1 → B2 → C1 → C2
+  const sortedBlocks = useMemo(() => {
+    if (!concept.blocks) return [];
+    return [...concept.blocks].sort(
+      (a, b) => LEVEL_ORDER[a.level] - LEVEL_ORDER[b.level]
+    );
+  }, [concept.blocks]);
+
+  // ─── DYNAMIC OVERVIEW ───
+  // If exactly one level is selected and the concept has a levelOverview for it, use that.
+  // Otherwise fall back to the universal overview.
+  const activeOverview = useMemo(() => {
+    if (
+      activeLevels.length === 1 &&
+      concept.levelOverviews &&
+      concept.levelOverviews[activeLevels[0]]
+    ) {
+      return concept.levelOverviews[activeLevels[0]]!;
+    }
+    return concept.overview;
+  }, [activeLevels, concept.overview, concept.levelOverviews]);
+
+  // Helper: Render markdown-bold text
+  const renderMarkdownBold = (text: string) =>
+    text.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={i} className="text-[var(--color-accent)] font-semibold">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return <span key={i}>{part}</span>;
+    });
+
+  // Language Mode helpers
+  const showDe = languageMode === "both" || languageMode === "de";
+  const showEn = languageMode === "both" || languageMode === "en";
+
   const content = (
     <div className={`flex flex-col ${mode === "drawer" ? "h-full" : "min-h-[calc(100vh-56px)]"} w-full bg-[var(--color-bg)]`}>
       {/* Header & Filter */}
@@ -97,114 +141,140 @@ export function UnifiedConceptView({
         )}
 
         {/* Multi-Select Filter Container - Inlined for better UX */}
-        <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
-          {/* Level Filters */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)] flex-shrink-0">
-              Levels:
-            </span>
-            <button
-              onClick={() => setActiveLevels([])}
-              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors flex-shrink-0 cursor-pointer ${
-                activeLevels.length === 0
-                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
-                  : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-              }`}
-            >
-              All
-            </button>
-            {ALL_LEVELS.map((lvl) => {
-              const isActive = activeLevels.includes(lvl);
-              const isAvailable = availableLevels.has(lvl);
-              return (
-                <button
-                  key={lvl}
-                  disabled={!isAvailable}
-                  onClick={() => toggleLevel(lvl)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all flex-shrink-0 ${
-                    !isAvailable
-                      ? "opacity-30 cursor-not-allowed bg-[var(--color-surface)] text-[var(--color-text-dim)]"
-                      : isActive
-                      ? `text-white shadow-md`
-                      : `bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)] cursor-pointer`
-                  }`}
-                  style={
-                    isActive
-                      ? { backgroundColor: `var(--color-cefr-${lvl.toLowerCase()})` }
-                      : {}
-                  }
-                >
-                  {lvl}
-                </button>
-              );
-            })}
+        <div className="flex flex-col gap-4">
+          {/* Row 1: Levels & Categories */}
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
+            {/* Level Filters */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+              <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)] flex-shrink-0">
+                Levels:
+              </span>
+              <button
+                onClick={() => setActiveLevels([])}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors flex-shrink-0 cursor-pointer ${
+                  activeLevels.length === 0
+                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                    : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                All
+              </button>
+              {ALL_LEVELS.map((lvl) => {
+                const isActive = activeLevels.includes(lvl);
+                const isAvailable = availableLevels.has(lvl);
+                return (
+                  <button
+                    key={lvl}
+                    disabled={!isAvailable}
+                    onClick={() => toggleLevel(lvl)}
+                    className={`px-3 py-1.5 rounded-full text-sm font-bold transition-all flex-shrink-0 ${
+                      !isAvailable
+                        ? "opacity-30 cursor-not-allowed bg-[var(--color-surface)] text-[var(--color-text-dim)]"
+                        : isActive
+                        ? `text-white shadow-md`
+                        : `bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)] cursor-pointer`
+                    }`}
+                    style={
+                      isActive
+                        ? { backgroundColor: `var(--color-cefr-${lvl.toLowerCase()})` }
+                        : {}
+                    }
+                  >
+                    {lvl}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Category Filters */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+              <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)] flex-shrink-0">
+                Category:
+              </span>
+              <button
+                onClick={() => setActiveCategories([])}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors flex-shrink-0 cursor-pointer ${
+                  activeCategories.length === 0
+                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                    : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                All
+              </button>
+              {ALL_CATEGORIES.map((cat) => {
+                const isActive = activeCategories.includes(cat);
+                const isAvailable = availableCategories.has(cat);
+                return (
+                  <button
+                    key={cat}
+                    disabled={!isAvailable}
+                    onClick={() => toggleCategory(cat)}
+                    className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all flex-shrink-0 ${
+                      !isAvailable
+                        ? "opacity-30 cursor-not-allowed bg-[var(--color-surface)] text-[var(--color-text-dim)] pointer-events-none"
+                        : isActive
+                        ? `bg-[var(--color-accent)] text-white shadow-md`
+                        : `bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)] cursor-pointer`
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Category Filters */}
+          {/* Row 2: Language / Immersion Mode */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            <Globe className="w-3.5 h-3.5 text-[var(--color-text-dim)] flex-shrink-0" />
             <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)] flex-shrink-0">
-              Category:
+              Language:
             </span>
-            <button
-              onClick={() => setActiveCategories([])}
-              className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors flex-shrink-0 cursor-pointer ${
-                activeCategories.length === 0
-                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
-                  : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-              }`}
-            >
-              All
-            </button>
-            {ALL_CATEGORIES.map((cat) => {
-              const isActive = activeCategories.includes(cat);
-              const isAvailable = availableCategories.has(cat);
-              return (
-                <button
-                  key={cat}
-                  disabled={!isAvailable}
-                  onClick={() => toggleCategory(cat)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all flex-shrink-0 ${
-                    !isAvailable
-                      ? "opacity-30 cursor-not-allowed bg-[var(--color-surface)] text-[var(--color-text-dim)] pointer-events-none"
-                      : isActive
-                      ? `bg-[var(--color-accent)] text-white shadow-md`
-                      : `bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)] cursor-pointer`
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+            {(
+              [
+                { key: "both", label: "Both" },
+                { key: "de", label: "Deutsch Only" },
+                { key: "en", label: "English Only" },
+              ] as { key: LanguageMode; label: string }[]
+            ).map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setLanguageMode(key)}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all flex-shrink-0 cursor-pointer ${
+                  languageMode === key
+                    ? "bg-[var(--color-theme)] text-white shadow-md"
+                    : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:bg-[var(--color-border)]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Scrollable Content Body */}
       <div className={`${mode === "drawer" ? "flex-1 overflow-y-auto" : "flex-1"} px-6 py-8`}>
-        {/* Base Overview (Hidden if heavily filtered? No, let's keep it visible if no specific category is forced, or hide it if specifically asking for grammar. For now, show it if 'All' or no specific category constraints that exclude it.) */}
+        {/* Dynamic Overview */}
         {(activeCategories.length === 0 || activeCategories.includes("Wortschatz") || activeCategories.includes("Praxis")) && (
           <div className="mb-12 animate-fade-in">
             <div className="flex items-center gap-2 mb-4">
               <BookOpen className="w-4 h-4 text-[var(--color-accent)]" />
               <h2 className="text-xl font-semibold text-[var(--color-text)]">Overview</h2>
+              {activeLevels.length === 1 && concept.levelOverviews?.[activeLevels[0]] && (
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold text-white" style={{ backgroundColor: `var(--color-cefr-${activeLevels[0].toLowerCase()})` }}>
+                  {activeLevels[0]} Focus
+                </span>
+              )}
             </div>
             <div className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line text-[15px]">
-              {concept.overview.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
-                if (part.startsWith("**") && part.endsWith("**")) {
-                  return (
-                    <strong key={i} className="text-[var(--color-accent)] font-semibold">
-                      {part.slice(2, -2)}
-                    </strong>
-                  );
-                }
-                return <span key={i}>{part}</span>;
-              })}
+              {renderMarkdownBold(activeOverview)}
             </div>
           </div>
         )}
 
-        {/* Hierarchical Blocks */}
-        {concept.blocks && concept.blocks.length > 0 && (
+        {/* Hierarchical Blocks — Strictly ordered A1 → C2 */}
+        {sortedBlocks.length > 0 && (
           <div className="space-y-8 mb-12">
             <div className="flex items-center gap-2 mb-2">
               <Layers className="w-4 h-4 text-[var(--color-concept)]" />
@@ -214,7 +284,7 @@ export function UnifiedConceptView({
             </div>
 
             <AnimatePresence mode="popLayout">
-              {concept.blocks.map((block: ConceptBlock) => {
+              {sortedBlocks.map((block: ConceptBlock) => {
                 // Multi-Select Intersection Engine
                 const isLevelMatch = activeLevels.length === 0 || activeLevels.includes(block.level);
                 const isCategoryMatch = activeCategories.length === 0 || (block.category && activeCategories.includes(block.category));
@@ -257,16 +327,7 @@ export function UnifiedConceptView({
                     </div>
 
                     <div className="text-[15px] text-[var(--color-text-secondary)] leading-relaxed mb-6 whitespace-pre-line">
-                      {block.content.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
-                        if (part.startsWith("**") && part.endsWith("**")) {
-                          return (
-                            <strong key={i} className="text-[var(--color-accent)] font-semibold">
-                              {part.slice(2, -2)}
-                            </strong>
-                          );
-                        }
-                        return <span key={i}>{part}</span>;
-                      })}
+                      {renderMarkdownBold(block.content)}
                     </div>
 
                     {/* Grammar Tables */}
@@ -284,7 +345,7 @@ export function UnifiedConceptView({
                       <InteractivePractice key={`quiz-${i}`} quiz={quiz} />
                     ))}
 
-                    {/* Bilingual Examples with Syntax Pills */}
+                    {/* Bilingual Examples with Language Mode */}
                     {block.examples && block.examples.length > 0 && (
                       <div className="space-y-3 mt-6">
                         <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-dim)]">
@@ -295,22 +356,26 @@ export function UnifiedConceptView({
                             key={i}
                             className="bg-[var(--color-surface)] rounded-xl p-4 border border-[var(--color-border-subtle)]"
                           >
-                            <p className="font-medium text-[15px] text-[var(--color-text)] mb-2 leading-loose">
-                              {ex.highlight ? (
-                                <span>
-                                  {ex.de.split(new RegExp(`(${ex.highlight.join('|')})`, 'gi')).map((part, j) => 
-                                    ex.highlight?.some(h => h.toLowerCase() === part.toLowerCase()) ? 
-                                      <span key={j} className="px-1.5 py-0.5 mx-0.5 rounded-md bg-[var(--color-accent)]/20 text-[var(--color-accent)] font-bold border border-[var(--color-accent)]/30 shadow-sm">{part}</span> : 
-                                      <span key={j}>{part}</span>
-                                  )}
-                                </span>
-                              ) : (
-                                ex.de
-                              )}
-                            </p>
-                            <p className="text-sm text-[var(--color-text-muted)] italic">
-                              {ex.en}
-                            </p>
+                            {showDe && (
+                              <p className="font-medium text-[15px] text-[var(--color-text)] mb-2 leading-loose">
+                                {ex.highlight ? (
+                                  <span>
+                                    {ex.de.split(new RegExp(`(${ex.highlight.join('|')})`, 'gi')).map((part, j) => 
+                                      ex.highlight?.some(h => h.toLowerCase() === part.toLowerCase()) ? 
+                                        <span key={j} className="px-1.5 py-0.5 mx-0.5 rounded-md bg-[var(--color-accent)]/20 text-[var(--color-accent)] font-bold border border-[var(--color-accent)]/30 shadow-sm">{part}</span> : 
+                                        <span key={j}>{part}</span>
+                                    )}
+                                  </span>
+                                ) : (
+                                  ex.de
+                                )}
+                              </p>
+                            )}
+                            {showEn && (
+                              <p className={`text-sm text-[var(--color-text-muted)] italic ${showDe ? '' : 'text-base not-italic text-[var(--color-text)]'}`}>
+                                {ex.en}
+                              </p>
+                            )}
                           </div>
                         ))}
                       </div>

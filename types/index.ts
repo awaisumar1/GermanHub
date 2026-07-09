@@ -79,6 +79,8 @@ export interface Concept extends GraphNodeBase {
   type: "concept";
   /** Detailed overview text (supports markdown) */
   overview: string;
+  /** Level-specific overview summaries for dynamic contextualization */
+  levelOverviews?: Partial<Record<CEFRLevel, string>>;
   /** Words that belong to this concept */
   words: string[];
   /** Unified Concept blocks containing level-specific content */
