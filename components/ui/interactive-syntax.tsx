@@ -47,7 +47,7 @@ export function InteractiveSyntax({ playground, showDe = true, showEn = true }: 
       {/* Translation */}
       {showEn && (
         <p className={`text-sm text-[var(--color-text-muted)] italic mb-4 ${showDe ? '' : 'text-base not-italic text-[var(--color-text)]'}`}>
-          "{playground.translation}"
+          &ldquo;{playground.translation}&rdquo;
         </p>
       )}
 

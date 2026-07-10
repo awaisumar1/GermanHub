@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Network, Home, BookOpen } from "lucide-react";
+import { Search, Network, Home } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { SearchDialog } from "./search-dialog";
 import { useState } from "react";
@@ -10,7 +10,6 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/graph", label: "Graph", icon: Network },
-  { href: "/timeline", label: "Timeline", icon: BookOpen },
 ];
 
 export function Navbar() {

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { X, BookOpen, Layers, AlertTriangle, ArrowRight, Globe, Star } from "lucide-react";
+import { X, BookOpen, Layers, AlertTriangle, Globe, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getConcept } from "@/lib/data";
 import { PremiumGrammarTable } from "@/components/ui/premium-grammar-table";
@@ -32,6 +32,33 @@ export function UnifiedConceptView({
   const [languageMode, setLanguageMode] = useState<LanguageMode>("both");
   
   const concept = getConcept(slug);
+
+  // ─── STRICT SEQUENTIAL ORDERING INVARIANT ───
+  // Sort blocks by CEFR difficulty: A1 → A2 → B1 → B2 → C1 → C2
+  // Must be called before early return to satisfy Rules of Hooks
+  const sortedBlocks = useMemo(() => {
+    if (!concept?.blocks) return [];
+    return [...concept.blocks].sort(
+      (a, b) => LEVEL_ORDER[a.level] - LEVEL_ORDER[b.level]
+    );
+  }, [concept]);
+
+  // ─── DYNAMIC OVERVIEW ───
+  // Must be called before early return to satisfy Rules of Hooks
+  const activeOverview = useMemo(() => {
+    if (!concept) return "";
+    const isDe = languageMode === "de";
+    if (activeLevels.length === 1) {
+      const lvl = activeLevels[0];
+      if (isDe && concept.levelOverviewsDe?.[lvl]) {
+        return concept.levelOverviewsDe[lvl]!;
+      }
+      if (concept.levelOverviews?.[lvl]) {
+        return concept.levelOverviews[lvl]!;
+      }
+    }
+    return (isDe && concept.overviewDe) ? concept.overviewDe : (concept.overview ?? "");
+  }, [activeLevels, concept, languageMode]);
 
   if (!concept) {
     return (
@@ -69,32 +96,6 @@ export function UnifiedConceptView({
     );
   };
 
-  // ─── STRICT SEQUENTIAL ORDERING INVARIANT ───
-  // Sort blocks by CEFR difficulty: A1 → A2 → B1 → B2 → C1 → C2
-  const sortedBlocks = useMemo(() => {
-    if (!concept.blocks) return [];
-    return [...concept.blocks].sort(
-      (a, b) => LEVEL_ORDER[a.level] - LEVEL_ORDER[b.level]
-    );
-  }, [concept.blocks]);
-
-  // ─── DYNAMIC OVERVIEW ───
-  // If exactly one level is selected and the concept has a levelOverview for it, use that.
-  // Otherwise fall back to the universal overview.
-  const activeOverview = useMemo(() => {
-    const isDe = languageMode === "de";
-    if (activeLevels.length === 1) {
-      const lvl = activeLevels[0];
-      if (isDe && concept.levelOverviewsDe?.[lvl]) {
-        return concept.levelOverviewsDe[lvl]!;
-      }
-      if (concept.levelOverviews?.[lvl]) {
-        return concept.levelOverviews[lvl]!;
-      }
-    }
-    return (isDe && concept.overviewDe) ? concept.overviewDe : concept.overview;
-  }, [activeLevels, concept, languageMode]);
-
   // Helper: Render markdown-bold text
   const renderMarkdownBold = (text: string) =>
     text.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
@@ -111,6 +112,7 @@ export function UnifiedConceptView({
   // Language Mode helpers
   const showDe = languageMode === "both" || languageMode === "de";
   const showEn = languageMode === "both" || languageMode === "en";
+
 
   const content = (
     <div className={`flex flex-col ${mode === "drawer" ? "h-full" : "min-h-[calc(100vh-56px)]"} w-full bg-[var(--color-bg)]`}>
