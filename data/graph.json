@@ -310,6 +310,19 @@
         { "slug": "a2", "type": "level", "relation": "builds-on" },
         { "slug": "expressing-reasons", "type": "concept", "relation": "deepens" }
       ]
+    },
+    {
+      "slug": "verbs-with-prepositions",
+      "title": "Verbs with Fixed Prepositions",
+      "titleDe": "Verben mit Präpositionen",
+      "type": "concept",
+      "status": "complete",
+      "summary": "Many German verbs are permanently locked to a specific preposition and case. We must memorize these combinations as single units.",
+      "levels": ["B1", "B2", "C1"],
+      "tags": ["grammar", "verbs", "prepositions", "cases"],
+      "related": [
+        { "slug": "prepositions", "type": "concept", "relation": "extends" }
+      ]
     }
   ],
   "edges": [
@@ -380,6 +393,10 @@
     { "source": "a2", "sourceType": "level", "target": "modal-verbs", "targetType": "concept", "label": "deepens" },
     { "source": "b1", "sourceType": "level", "target": "modal-verbs", "targetType": "concept", "label": "masters" },
     { "source": "modal-verbs", "sourceType": "concept", "target": "expressing-reasons", "targetType": "concept", "label": "used-with" },
-    { "source": "modal-verbs", "sourceType": "concept", "target": "prepositions", "targetType": "concept", "label": "used-with" }
+    { "source": "modal-verbs", "sourceType": "concept", "target": "prepositions", "targetType": "concept", "label": "used-with" },
+    { "source": "b1", "sourceType": "level", "target": "verbs-with-prepositions", "targetType": "concept", "label": "introduces" },
+    { "source": "b2", "sourceType": "level", "target": "verbs-with-prepositions", "targetType": "concept", "label": "deepens" },
+    { "source": "c1", "sourceType": "level", "target": "verbs-with-prepositions", "targetType": "concept", "label": "masters" },
+    { "source": "verbs-with-prepositions", "sourceType": "concept", "target": "prepositions", "targetType": "concept", "label": "extends" }
   ]
 }

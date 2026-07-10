@@ -225,7 +225,9 @@
     "summary": "Mastering prepositions is the key to unlocking German cases.",
     "levels": ["A1", "A2", "B1", "B2", "C1"],
     "tags": ["grammar", "cases", "prepositions"],
-    "related": [],
+    "related": [
+      { "slug": "verbs-with-prepositions", "type": "concept", "relation": "extends" }
+    ],
     "overview": "Prepositions in German are the ultimate deciders of cases. They act like little traffic cops, directing the following noun into the Accusative, Dative, or Genitive case regardless of the noun's actual role in the sentence.",
     "levelOverviews": {
       "A2": "At A2, focus on memorizing which prepositions always take the Accusative case (**FUDGE**: für, um, durch, gegen) and which always take the Dative (**aus, bei, mit, nach, seit, von, zu**). The case is fixed — no exceptions.",
@@ -599,5 +601,130 @@
       }
     ],
     "learningPath": []
+  },
+  {
+    "id": "verbs-with-prepositions",
+    "title": "Verbs with Fixed Prepositions",
+    "germanTitle": "Verben mit Präpositionen",
+    "slug": "verbs-with-prepositions",
+    "type": "concept",
+    "status": "complete",
+    "summary": "Many German verbs are permanently locked to a specific preposition and case. We must memorize these combinations as single units.",
+    "levels": ["B1", "B2", "C1"],
+    "tags": ["grammar", "verbs", "prepositions", "cases"],
+    "related": [
+      { "slug": "prepositions", "type": "concept", "relation": "extends" }
+    ],
+    "overview": "Verbs with fixed prepositions are a fundamental part of mastering German. You cannot guess the preposition based on English translations; you must learn the verb, the preposition, and the case it governs as a single, indivisible chunk.",
+    "words": [],
+    "comparisons": [],
+    "commonMistakes": [],
+    "learningPath": [],
+    "blocks": [
+      {
+        "level": "B1",
+        "category": "Grammatik",
+        "title": "Core Everyday Combinations",
+        "dynamicOverview": {
+          "de": "Viele deutsche Verben sind fest mit einer bestimmten Präposition und einem Kasus verbunden. Das müssen wir auswendig lernen.",
+          "en": "Many German verbs are permanently locked to a specific preposition and case. We must memorize these combinations as single units."
+        },
+        "tables": [
+          {
+            "title": "B1 High-Frequency Verbs",
+            "headers": ["Verb", "Preposition", "Governed Case", "English Meaning"],
+            "rows": [
+              { "label": "warten", "values": ["auf", "Akkusativ", "to wait for"] },
+              { "label": "träumen", "values": ["von", "Dativ", "to dream of"] },
+              { "label": "sich interessieren", "values": ["für", "Akkusativ", "to be interested in"] },
+              { "label": "denken", "values": ["an", "Akkusativ", "to think about"] }
+            ]
+          }
+        ],
+        "syntaxPlaygrounds": [
+          {
+            "translation": "I am waiting for the bus.",
+            "tokens": [
+              { "word": "Ich", "role": "Subject" },
+              { "word": "warte", "role": "Action Verb" },
+              { "word": "auf", "role": "Fixed Preposition (forces Akkusativ here)" },
+              { "word": "den", "role": "Masculine Accusative Article" },
+              { "word": "Bus", "role": "Noun Object" },
+              { "word": "." }
+            ]
+          }
+        ],
+        "practices": [
+          {
+            "type": "gap-fill",
+            "prompt": "Ich träume oft ___ einem großen Haus. (von + Dativ)",
+            "answer": "von",
+            "explanation": "The verb 'träumen' always takes the preposition 'von', which governs the Dative case ('einem Haus')."
+          }
+        ]
+      },
+      {
+        "level": "B2",
+        "category": "Grammatik",
+        "title": "Reflexive & Professional Contexts",
+        "dynamicOverview": {
+          "de": "Im B2-Niveau kommen viele reflexive Verben hinzu, die im Berufskontext wichtig sind.",
+          "en": "At the B2 level, we introduce complex reflexive verbs commonly used in professional and academic German environments."
+        },
+        "tables": [
+          {
+            "title": "B2 Professional Verbs",
+            "headers": ["Verb", "Preposition", "Governed Case", "English Meaning"],
+            "rows": [
+              { "label": "sich beschweren", "values": ["über", "Akkusativ", "to complain about"] },
+              { "label": "abhängen", "values": ["von", "Dativ", "to depend on"] },
+              { "label": "sich aufregen", "values": ["über", "Akkusativ", "to get upset about"] },
+              { "label": "teilnehmen", "values": ["an", "Dativ", "to participate in"] }
+            ]
+          }
+        ],
+        "practices": [
+          {
+            "type": "gap-fill",
+            "prompt": "Das hängt ___ dem Wetter ab. (von + Dativ)",
+            "answer": "von",
+            "explanation": "The separable verb 'abhängen' requires 'von' + Dativ."
+          }
+        ]
+      },
+      {
+        "level": "C1",
+        "category": "Grammatik",
+        "title": "Abstract & Stylistic Combinations",
+        "dynamicOverview": {
+          "de": "C1-Verben nutzen abstrakte feste Präpositionen für präzise Argumentationen.",
+          "en": "C1 combinations use highly abstract prepositions required for sophisticated essays and precise academic argumentation."
+        },
+        "tables": [
+          {
+            "title": "C1 Academic Verbs",
+            "headers": ["Verb", "Preposition", "Governed Case", "English Meaning"],
+            "rows": [
+              { "label": "beharren", "values": ["auf", "Dativ", "to insist upon / insist on"] },
+              { "label": "zweifeln", "values": ["an", "Dativ", "to doubt / have doubts about"] },
+              { "label": "beitragen", "values": ["zu", "Dativ", "to contribute to"] }
+            ]
+          }
+        ],
+        "syntaxPlaygrounds": [
+          {
+            "translation": "She insists on her opinion.",
+            "tokens": [
+              { "word": "Sie", "role": "Subject" },
+              { "word": "beharrt", "role": "Verb" },
+              { "word": "auf", "role": "Fixed Preposition (forces Dativ for this specific verb)" },
+              { "word": "ihrer", "role": "Feminine Dative Possessive Article" },
+              { "word": "Meinung", "role": "Noun" },
+              { "word": "." }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
