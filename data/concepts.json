@@ -522,6 +522,72 @@
             "highlight": ["müsste"]
           }
         ]
+      },
+      {
+        "level": "B1",
+        "category": "Grammatik",
+        "title": "Master Reference — All Forms at a Glance",
+        "titleDe": "Gesamtübersicht — Alle Formen auf einen Blick",
+        "dynamicOverview": {
+          "en": "This is your complete cheat sheet. Every modal verb, every tense, every person — in one table. Bookmark this block.",
+          "de": "Das ist deine vollständige Übersicht. Jedes Modalverb, jede Zeitform, jede Person — in einer Tabelle."
+        },
+        "tables": [
+          {
+            "title": "können — can / to be able to",
+            "headers": ["Person", "Präsens", "Präteritum", "Konjunktiv II"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["kann", "konnte", "könnte"] },
+              { "label": "du", "values": ["kannst", "konntest", "könntest"] },
+              { "label": "wir / sie / Sie", "values": ["können", "konnten", "könnten"] }
+            ]
+          },
+          {
+            "title": "müssen — must / to have to",
+            "headers": ["Person", "Präsens", "Präteritum", "Konjunktiv II"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["muss", "musste", "müsste"] },
+              { "label": "du", "values": ["musst", "musstest", "müsstest"] },
+              { "label": "wir / sie / Sie", "values": ["müssen", "mussten", "müssten"] }
+            ]
+          },
+          {
+            "title": "wollen — to want",
+            "headers": ["Person", "Präsens", "Präteritum", "Konjunktiv II"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["will", "wollte", "wollte*"] },
+              { "label": "du", "values": ["willst", "wolltest", "wolltest*"] },
+              { "label": "wir / sie / Sie", "values": ["wollen", "wollten", "wollten*"] }
+            ]
+          },
+          {
+            "title": "sollen — should / to be supposed to",
+            "headers": ["Person", "Präsens", "Präteritum", "Konjunktiv II"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["soll", "sollte", "sollte"] },
+              { "label": "du", "values": ["sollst", "solltest", "solltest"] },
+              { "label": "wir / sie / Sie", "values": ["sollen", "sollten", "sollten"] }
+            ]
+          },
+          {
+            "title": "dürfen — may / to be allowed to",
+            "headers": ["Person", "Präsens", "Präteritum", "Konjunktiv II"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["darf", "durfte", "dürfte"] },
+              { "label": "du", "values": ["darfst", "durftest", "dürftest"] },
+              { "label": "wir / sie / Sie", "values": ["dürfen", "durften", "dürften"] }
+            ]
+          },
+          {
+            "title": "mögen / möchten — to like / would like",
+            "headers": ["Person", "Präsens (mögen)", "Präteritum", "Konjunktiv II (möchten)"],
+            "rows": [
+              { "label": "ich / er / sie / es", "values": ["mag", "mochte", "möchte"] },
+              { "label": "du", "values": ["magst", "mochtest", "möchtest"] },
+              { "label": "wir / sie / Sie", "values": ["mögen", "mochten", "möchten"] }
+            ]
+          }
+        ]
       }
     ],
     "comparisons": [],

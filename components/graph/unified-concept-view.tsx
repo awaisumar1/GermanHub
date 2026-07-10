@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { X, BookOpen, Layers, AlertTriangle, ArrowRight, Globe } from "lucide-react";
+import { X, BookOpen, Layers, AlertTriangle, ArrowRight, Globe, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getConcept } from "@/lib/data";
 import { PremiumGrammarTable } from "@/components/ui/premium-grammar-table";
@@ -301,21 +301,25 @@ export function UnifiedConceptView({
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="card-base p-6 sm:p-8 relative overflow-hidden"
+                    className={`relative overflow-hidden ${
+                      block.title.includes('Master Reference') || block.title.includes('Gesamtübersicht') || block.titleDe?.includes('Gesamtübersicht')
+                        ? 'card-base p-6 sm:p-8 ring-1 ring-amber-400/30 bg-gradient-to-br from-amber-950/20 via-[var(--color-bg-elevated)] to-[var(--color-bg-elevated)]'
+                        : 'card-base p-6 sm:p-8'
+                    }`}
                   >
+                    {/* Left accent bar */}
                     <div
                       className="absolute left-0 top-0 bottom-0 w-1.5"
-                      style={{
-                        backgroundColor: `var(--color-cefr-${block.level.toLowerCase()})`,
-                      }}
+                      style={{ backgroundColor: `var(--color-cefr-${block.level.toLowerCase()})` }}
                     />
 
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-4 flex-wrap">
+                      {(block.title.includes('Master Reference') || block.titleDe?.includes('Gesamtübersicht')) && (
+                        <Star className="w-4 h-4 text-amber-400 fill-amber-400 flex-shrink-0" />
+                      )}
                       <span
                         className="px-2 py-0.5 rounded text-xs font-bold text-white"
-                        style={{
-                          backgroundColor: `var(--color-cefr-${block.level.toLowerCase()})`,
-                        }}
+                        style={{ backgroundColor: `var(--color-cefr-${block.level.toLowerCase()})` }}
                       >
                         {block.level}
                       </span>
@@ -324,7 +328,11 @@ export function UnifiedConceptView({
                           {block.category}
                         </span>
                       )}
-                      <h3 className="text-lg font-bold text-[var(--color-text)]">
+                      <h3 className={`text-lg font-bold ${
+                        block.title.includes('Master Reference') || block.titleDe?.includes('Gesamtübersicht')
+                          ? 'text-amber-300'
+                          : 'text-[var(--color-text)]'
+                      }`}>
                         {(!showEn && block.titleDe) ? block.titleDe : block.title}
                       </h3>
                     </div>
