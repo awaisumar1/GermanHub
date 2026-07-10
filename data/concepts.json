@@ -17,10 +17,16 @@
       { "slug": "formal-language", "type": "skill", "relation": "relevant-to" }
     ],
     "overview": "German offers several ways to express reasons and causes. While English mainly relies on 'because' and 'therefore', German distinguishes between words that change sentence structure (like **weil**) and words that don't (like **denn**). Understanding these differences is key to sounding natural in German.\n\nThe five core words in this concept are:\n- **weil** — because (subordinating conjunction)\n- **denn** — because/for (coordinating conjunction)\n- **deshalb** — therefore/that's why (connecting adverb)\n- **deswegen** — therefore/that's why (connecting adverb)\n- **daher** — therefore/hence (connecting adverb, slightly formal)\n\nMastering these words means understanding not just their meaning, but how they reshape the sentence around them.",
+    "overviewDe": "Deutsch bietet verschiedene Möglichkeiten, Gründe und Ursachen auszudrücken. Während sich Englisch hauptsächlich auf 'because' und 'therefore' verlässt, unterscheidet Deutsch zwischen Wörtern, die die Satzstruktur verändern (wie **weil**), und Wörtern, die dies nicht tun (wie **denn**).\n\nDie fünf Kernwörter in diesem Konzept sind:\n- **weil** — weil (unterordnende Konjunktion)\n- **denn** — denn (nebenordnende Konjunktion)\n- **deshalb** — deshalb (verbindendes Adverb)\n- **deswegen** — deswegen (verbindendes Adverb)\n- **daher** — daher (verbindendes Adverb, leicht formell)",
     "levelOverviews": {
       "A2": "At A2, you'll learn the two most essential words for saying 'because' in German: **weil** and **denn**. Focus on how **weil** sends the verb to the end of the sentence, while **denn** keeps normal word order.",
       "B1": "At B1, you graduate from 'because' to 'therefore'. The connecting adverbs **deshalb** and **deswegen** let you express results and consequences, using verb-second inversion to sound more advanced.",
       "B2": "At B2, you add **daher** to your arsenal — a formal, written-register word for 'therefore' that elevates your German in essays, presentations, and professional contexts."
+    },
+    "levelOverviewsDe": {
+      "A2": "Auf dem A2-Niveau lernst du die zwei wichtigsten Wörter für 'weil': **weil** und **denn**. Achte darauf, wie **weil** das Verb ans Ende des Satzes schickt, während **denn** die normale Wortstellung beibehält.",
+      "B1": "Auf B1 wechselst du von 'weil' zu 'deshalb'. Mit den Adverbien **deshalb** und **deswegen** kannst du Ergebnisse ausdrücken und Inversion nutzen, um fortgeschrittener zu klingen.",
+      "B2": "Auf B2 fügst du **daher** hinzu — ein formelles Wort für 'deshalb', das dein Deutsch in Aufsätzen und Präsentationen aufwertet."
     },
     "words": ["weil", "denn", "deshalb", "deswegen", "daher"],
     "blocks": [
@@ -28,7 +34,9 @@
         "level": "A2",
         "category": "Grammatik",
         "title": "Basic Reasons with 'weil' and 'denn'",
+        "titleDe": "Grundlegende Gründe mit 'weil' und 'denn'",
         "content": "When you start expressing reasons, you mainly need two tools: **weil** and **denn**.\n\nThey both mean 'because', but they behave differently grammatically. **weil** is a subordinating conjunction, which means it kicks the conjugated verb to the very end of the sentence. **denn** is a coordinating conjunction, which means it occupies 'position 0' and doesn't change the word order of the following clause.",
+        "contentDe": "Wenn du anfängst, Gründe auszudrücken, brauchst du hauptsächlich zwei Werkzeuge: **weil** und **denn**.\n\nBeide bedeuten 'because', aber sie verhalten sich grammatikalisch unterschiedlich. **weil** ist eine unterordnende Konjunktion, was bedeutet, dass es das konjugierte Verb ans Ende des Satzes schiebt. **denn** ist eine nebenordnende Konjunktion, besetzt also 'Position 0' und ändert die Wortstellung nicht.",
         "tables": [
           {
             "title": "Word Order Comparison",
@@ -332,6 +340,198 @@
     ],
     "comparisons": [],
     "commonMistakes": [],
+    "learningPath": []
+  },
+  {
+    "slug": "modal-verbs",
+    "title": "Modal Verbs",
+    "titleDe": "Modalverben",
+    "type": "concept",
+    "status": "complete",
+    "summary": "Modal verbs are the engine of German sentence nuance — expressing ability, necessity, permission, and polite wishes across all tenses.",
+    "levels": ["A1", "A2", "B1"],
+    "tags": ["grammar", "verbs", "conjugation", "sentence-structure", "subjunctive"],
+    "related": [
+      { "slug": "expressing-reasons", "type": "concept", "relation": "used-with" },
+      { "slug": "prepositions", "type": "concept", "relation": "used-with" }
+    ],
+    "overview": "Modal verbs are helper verbs that modify the meaning of another verb. In German, they are: **können** (can), **müssen** (must), **wollen** (want), **sollen** (should), **dürfen** (may), **mögen/möchten** (like/would like).\n\nTheir evolution follows a precise spiral: first you master the **Präsens** (present), then the **Präteritum** (simple past — the dominant past tense for modals in spoken German), then finally **Konjunktiv II** which unlocks polite, hypothetical, and subjunctive speech.",
+    "overviewDe": "Modalverben sind Hilfsverben, die die Bedeutung eines anderen Verbs verändern. Auf Deutsch sind das: **können**, **müssen**, **wollen**, **sollen**, **dürfen**, **mögen/möchten**.\n\nIhre Entwicklung folgt einer klaren Spirale: erst das **Präsens**, dann das **Präteritum** (die bevorzugte Vergangenheitsform für Modalverben im Deutschen), und schließlich der **Konjunktiv II** für höfliche und hypothetische Aussagen.",
+    "levelOverviews": {
+      "A1": "At A1, you master the two most essential modal verbs — **können** and **müssen** — in the present tense. The critical rule: the modal takes Position 2; the infinitive is kicked to the end of the sentence.",
+      "A2": "At A2, you learn to talk about the past with modal verbs. German speakers almost always use the **Präteritum** (not Perfekt) for modal verbs in spoken language. It sounds clean and natural.",
+      "B1": "At B1, you unlock **Konjunktiv II** — the subjunctive mood. This lets you ask polite questions, give soft advice, and talk about hypothetical situations. It transforms your register from basic to sophisticated."
+    },
+    "levelOverviewsDe": {
+      "A1": "Auf A1-Niveau meisterst du die zwei wichtigsten Modalverben — **können** und **müssen** — im Präsens. Die zentrale Regel: das Modalverb steht auf Position 2; das Infinitiv kommt ans Ende.",
+      "A2": "Auf A2 lernst du, über die Vergangenheit mit Modalverben zu sprechen. Im Deutschen benutzen Muttersprachler fast immer das **Präteritum** (nicht Perfekt) für Modalverben — das klingt natürlich.",
+      "B1": "Auf B1 entdeckst du den **Konjunktiv II**. Damit kannst du höfliche Fragen stellen, sanfte Ratschläge geben und über hypothetische Situationen sprechen. Dein Niveau steigt vom Basis- zum Fortgeschrittenen."
+    },
+    "words": [],
+    "blocks": [
+      {
+        "level": "A1",
+        "category": "Grammatik",
+        "title": "Present Tense Basics & Sentence Structure",
+        "titleDe": "Grundlagen des Präsens & Satzstruktur",
+        "dynamicOverview": {
+          "en": "Modal verbs change the meaning of a sentence. In A1, we focus entirely on the present tense basic conjugations.",
+          "de": "Modalverben verändern die Bedeutung eines Satzes. Im A1-Niveau lernen wir die Gegenwart (Präsens)."
+        },
+        "content": "Modal verbs sit at **Position 2** in the sentence — exactly where a regular verb would go. But they push the main action verb all the way to the **end** of the clause as an infinitive.\n\nThis two-verb bracket is the DNA of all German modal sentences.",
+        "contentDe": "Modalverben stehen auf **Position 2** im Satz — genau dort, wo ein normales Verb stehen würde. Aber sie schieben das Hauptverb als Infinitiv ans **Ende** des Satzes.\n\nDiese Zwei-Verb-Klammer ist die DNA aller deutschen Modalsätze.",
+        "tables": [
+          {
+            "title": "Präsens (Present Tense)",
+            "headers": ["Verb", "ich / er / sie / es", "du", "wir / sie / Sie"],
+            "rows": [
+              { "label": "können (ability)", "values": ["kann", "kannst", "können"] },
+              { "label": "müssen (necessity)", "values": ["muss", "musst", "müssen"] },
+              { "label": "wollen (want)", "values": ["will", "willst", "wollen"] },
+              { "label": "sollen (should/supposed to)", "values": ["soll", "sollst", "sollen"] },
+              { "label": "dürfen (may/permission)", "values": ["darf", "darfst", "dürfen"] },
+              { "label": "möchten (would like)", "values": ["möchte", "möchtest", "möchten"] }
+            ]
+          }
+        ],
+        "syntaxPlaygrounds": [
+          {
+            "translation": "I can speak German.",
+            "tokens": [
+              { "word": "Ich", "role": "Subject (Nominativ)", "roleDe": "Subjekt (Nominativ)", "isClickable": true },
+              { "word": "kann", "role": "Modal Verb — always at Position 2", "roleDe": "Modalverb — immer auf Position 2", "isClickable": true },
+              { "word": "Deutsch", "role": "Object (Akkusativ)", "roleDe": "Objekt (Akkusativ)", "isClickable": true },
+              { "word": "sprechen", "role": "Infinitive — kicked to end by modal", "roleDe": "Infinitiv — durch Modalverb ans Ende verschoben", "isClickable": true },
+              { "word": "." }
+            ]
+          }
+        ],
+        "practices": [
+          {
+            "type": "gap-fill",
+            "prompt": "Ich ___ heute nicht kommen, ich bin krank. (können)",
+            "answer": "kann",
+            "explanation": "Subject is 'Ich' — use the irregular 'kann' (not 'könne'). Modal verbs drop the umlaut in ich/er/sie/es forms.",
+            "explanationDe": "Subjekt ist 'Ich' — verwende die unregelmäßige Form 'kann'. Modalverben verlieren den Umlaut in den ich/er/sie/es-Formen."
+          }
+        ],
+        "examples": [
+          {
+            "de": "Ich kann Deutsch sprechen.",
+            "en": "I can speak German.",
+            "highlight": ["kann", "sprechen"]
+          },
+          {
+            "de": "Er muss morgen arbeiten.",
+            "en": "He must work tomorrow.",
+            "highlight": ["muss", "arbeiten"]
+          }
+        ]
+      },
+      {
+        "level": "A2",
+        "category": "Grammatik",
+        "title": "Past Tense (Präteritum)",
+        "titleDe": "Vergangenheit (Präteritum)",
+        "dynamicOverview": {
+          "en": "In daily life, German speakers almost always use the Präteritum (simple past) for modal verbs — not the Perfekt. It sounds clean and natural.",
+          "de": "Im Alltag benutzen Deutsche für Modalverben fast immer das Präteritum — nicht das Perfekt. Es klingt natürlicher und klarer."
+        },
+        "content": "While most German verbs use *Perfekt* for past events in speech, modal verbs are the major exception — native speakers overwhelmingly prefer **Präteritum**.\n\nThe pattern is regular: add **-te** to the stem, remove the umlaut if present.\n\n> ❌ *Ich habe gestern arbeiten müssen.* (grammatically valid but unnatural)\n> ✅ *Ich musste gestern arbeiten.* (natural spoken German)",
+        "contentDe": "Während die meisten deutschen Verben das *Perfekt* für vergangene Ereignisse nutzen, sind Modalverben die große Ausnahme — Muttersprachler bevorzugen fast immer das **Präteritum**.\n\nDas Muster ist regelmäßig: **-te** an den Stamm, Umlaut entfernen.\n\n> ❌ *Ich habe gestern arbeiten müssen.* (grammatisch korrekt, aber unnatürlich)\n> ✅ *Ich musste gestern arbeiten.* (natürliches gesprochenes Deutsch)",
+        "tables": [
+          {
+            "title": "Präteritum (Simple Past)",
+            "headers": ["Verb", "ich / er / sie / es", "du", "wir / sie / Sie"],
+            "rows": [
+              { "label": "können → past ability", "values": ["konnte", "konntest", "konnten"] },
+              { "label": "müssen → past necessity", "values": ["musste", "musstest", "mussten"] },
+              { "label": "wollen → past want", "values": ["wollte", "wolltest", "wollten"] },
+              { "label": "sollen → past obligation", "values": ["sollte", "solltest", "sollten"] },
+              { "label": "dürfen → past permission", "values": ["durfte", "durftest", "durften"] }
+            ]
+          }
+        ],
+        "practices": [
+          {
+            "type": "gap-fill",
+            "prompt": "Gestern ___ ich lange arbeiten. (müssen)",
+            "answer": "musste",
+            "explanation": "'Gestern' signals past tense. The Präteritum of 'müssen' for 'ich' drops the umlaut: müssen → musste.",
+            "explanationDe": "'Gestern' signalisiert die Vergangenheit. Das Präteritum von 'müssen' für 'ich' verliert den Umlaut: müssen → musste."
+          }
+        ],
+        "examples": [
+          {
+            "de": "Ich konnte gestern nicht kommen.",
+            "en": "I couldn't come yesterday.",
+            "highlight": ["konnte"]
+          },
+          {
+            "de": "Sie musste früh aufstehen.",
+            "en": "She had to get up early.",
+            "highlight": ["musste"]
+          }
+        ]
+      },
+      {
+        "level": "B1",
+        "category": "Grammatik",
+        "title": "Polite Wishes & Possibilities (Konjunktiv II)",
+        "titleDe": "Höfliche Wünsche & Möglichkeiten (Konjunktiv II)",
+        "dynamicOverview": {
+          "en": "With Konjunktiv II, we can ask polite questions, give advice, or talk about hypothetical wishes. It transforms your entire register.",
+          "de": "Mit dem Konjunktiv II können wir höfliche Fragen stellen, Ratschläge geben oder über hypothetische Wünsche sprechen."
+        },
+        "content": "**Konjunktiv II** is formed by adding an umlaut back to the Präteritum stem and then the subjunctive endings.\n\nFor modal verbs, this produces the elegant forms you hear constantly in polite German: *Könnten Sie...?*, *Das müsste reichen.*, *Ich möchte...*\n\nThe key distinction from Präteritum: **Konjunktiv II expresses unreality or politeness**, while Präteritum expresses a simple past fact.",
+        "contentDe": "Der **Konjunktiv II** entsteht durch Hinzufügen des Umlauts zum Präteritum-Stamm und der Konjunktivendungen.\n\nFür Modalverben entstehen die eleganten Formen, die man ständig im höflichen Deutsch hört: *Könnten Sie...?*, *Das müsste reichen.*, *Ich möchte...*\n\nDer wichtige Unterschied zum Präteritum: **Konjunktiv II drückt Unwirklichkeit oder Höflichkeit aus**, während das Präteritum eine einfache Vergangenheitsaussage ist.",
+        "tables": [
+          {
+            "title": "Konjunktiv II (Subjunctive / Polite)",
+            "headers": ["Verb", "ich / er / sie / es", "du", "wir / sie / Sie"],
+            "rows": [
+              { "label": "können → could (polite)", "values": ["könnte", "könntest", "könnten"] },
+              { "label": "müssen → should/ought to", "values": ["müsste", "müsstest", "müssten"] },
+              { "label": "wollen → would want", "values": ["wollte*", "wolltest*", "wollten*"] },
+              { "label": "sollen → should (obligation)", "values": ["sollte", "solltest", "sollten"] },
+              { "label": "dürfen → might/could (polite)", "values": ["dürfte", "dürftest", "dürften"] }
+            ]
+          }
+        ],
+        "syntaxPlaygrounds": [
+          {
+            "translation": "Could you help me? (polite)",
+            "tokens": [
+              { "word": "Könnten", "role": "Konjunktiv II — modal at Position 1 (question = verb-first)", "roleDe": "Konjunktiv II — Modalverb auf Position 1 (Frage = Verb-Erst-Stellung)", "isClickable": true },
+              { "word": "Sie", "role": "Formal Subject — pushed to Position 2 in questions", "roleDe": "Formelles Subjekt — in Fragen auf Position 2", "isClickable": true },
+              { "word": "mir", "role": "Dative Pronoun (the receiver of help)", "roleDe": "Dativpronomen (der Empfänger der Hilfe)", "isClickable": true },
+              { "word": "helfen", "role": "Infinitive Action Verb — at the end, as always with modals", "roleDe": "Infinitiv-Hauptverb — wie immer bei Modalverben am Ende", "isClickable": true },
+              { "word": "?" }
+            ]
+          }
+        ],
+        "examples": [
+          {
+            "de": "Könnten Sie mir bitte helfen?",
+            "en": "Could you please help me?",
+            "highlight": ["Könnten"]
+          },
+          {
+            "de": "Das müsste eigentlich klappen.",
+            "en": "That should actually work out.",
+            "highlight": ["müsste"]
+          }
+        ]
+      }
+    ],
+    "comparisons": [],
+    "commonMistakes": [
+      {
+        "mistake": "Ich habe das machen gekonnt.",
+        "correction": "Ich konnte das machen.",
+        "explanation": "Modal verbs in past tense sound unnatural in Perfekt. Always use Präteritum in speech."
+      }
+    ],
     "learningPath": []
   }
 ]

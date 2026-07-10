@@ -79,8 +79,10 @@ export interface Concept extends GraphNodeBase {
   type: "concept";
   /** Detailed overview text (supports markdown) */
   overview: string;
+  overviewDe?: string;
   /** Level-specific overview summaries for dynamic contextualization */
   levelOverviews?: Partial<Record<CEFRLevel, string>>;
+  levelOverviewsDe?: Partial<Record<CEFRLevel, string>>;
   /** Words that belong to this concept */
   words: string[];
   /** Unified Concept blocks containing level-specific content */
@@ -107,6 +109,7 @@ export interface GrammarTable {
 export interface SyntaxToken {
   word: string;
   role?: string;
+  roleDe?: string;
   isClickable?: boolean;
 }
 
@@ -120,6 +123,7 @@ export interface PracticeQuiz {
   prompt: string;
   answer: string;
   explanation?: string;
+  explanationDe?: string;
 }
 
 export interface ConceptBlock {
@@ -129,8 +133,12 @@ export interface ConceptBlock {
   category?: BlockCategory;
   /** Short block title */
   title: string;
+  titleDe?: string;
   /** Detailed markdown content */
-  content: string;
+  content?: string;
+  contentDe?: string;
+  /** Bilingual block-level overview that replaces the global dynamic overview when this block is focused */
+  dynamicOverview?: { de: string; en: string };
   /** Structural grammar tables */
   tables?: GrammarTable[];
   /** Interactive syntax playground */

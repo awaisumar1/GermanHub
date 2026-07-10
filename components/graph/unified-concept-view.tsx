@@ -82,15 +82,18 @@ export function UnifiedConceptView({
   // If exactly one level is selected and the concept has a levelOverview for it, use that.
   // Otherwise fall back to the universal overview.
   const activeOverview = useMemo(() => {
-    if (
-      activeLevels.length === 1 &&
-      concept.levelOverviews &&
-      concept.levelOverviews[activeLevels[0]]
-    ) {
-      return concept.levelOverviews[activeLevels[0]]!;
+    const isDe = languageMode === "de";
+    if (activeLevels.length === 1) {
+      const lvl = activeLevels[0];
+      if (isDe && concept.levelOverviewsDe?.[lvl]) {
+        return concept.levelOverviewsDe[lvl]!;
+      }
+      if (concept.levelOverviews?.[lvl]) {
+        return concept.levelOverviews[lvl]!;
+      }
     }
-    return concept.overview;
-  }, [activeLevels, concept.overview, concept.levelOverviews]);
+    return (isDe && concept.overviewDe) ? concept.overviewDe : concept.overview;
+  }, [activeLevels, concept, languageMode]);
 
   // Helper: Render markdown-bold text
   const renderMarkdownBold = (text: string) =>
@@ -322,13 +325,25 @@ export function UnifiedConceptView({
                         </span>
                       )}
                       <h3 className="text-lg font-bold text-[var(--color-text)]">
-                        {block.title}
+                        {(!showEn && block.titleDe) ? block.titleDe : block.title}
                       </h3>
                     </div>
 
-                    <div className="text-[15px] text-[var(--color-text-secondary)] leading-relaxed mb-6 whitespace-pre-line">
-                      {renderMarkdownBold(block.content)}
-                    </div>
+                    {/* Block-level dynamic overview callout */}
+                    {block.dynamicOverview && (
+                      <div className="mb-5 px-4 py-3 rounded-xl border-l-4 bg-[var(--color-surface)] text-[14px] leading-relaxed text-[var(--color-text-secondary)] italic"
+                        style={{ borderColor: `var(--color-cefr-${block.level.toLowerCase()})` }}
+                      >
+                        {(!showEn && block.dynamicOverview.de) ? block.dynamicOverview.de : block.dynamicOverview.en}
+                      </div>
+                    )}
+
+                    {/* Prose content */}
+                    {(block.content || block.contentDe) && (
+                      <div className="text-[15px] text-[var(--color-text-secondary)] leading-relaxed mb-6 whitespace-pre-line">
+                        {renderMarkdownBold((!showEn && block.contentDe) ? block.contentDe : (block.content ?? ""))}
+                      </div>
+                    )}
 
                     {/* Grammar Tables */}
                     {block.tables && block.tables.map((table, i) => (
@@ -337,19 +352,19 @@ export function UnifiedConceptView({
 
                     {/* Syntax Playgrounds */}
                     {block.syntaxPlaygrounds && block.syntaxPlaygrounds.map((pg, i) => (
-                      <InteractiveSyntax key={`syntax-${i}`} playground={pg} />
+                      <InteractiveSyntax key={`syntax-${i}`} playground={pg} showDe={showDe} showEn={showEn} />
                     ))}
 
                     {/* Practice Quizzes */}
                     {block.practices && block.practices.map((quiz, i) => (
-                      <InteractivePractice key={`quiz-${i}`} quiz={quiz} />
+                      <InteractivePractice key={`quiz-${i}`} quiz={quiz} showDe={showDe} showEn={showEn} />
                     ))}
 
                     {/* Bilingual Examples with Language Mode */}
                     {block.examples && block.examples.length > 0 && (
                       <div className="space-y-3 mt-6">
                         <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-dim)]">
-                          Examples
+                          {!showEn ? "Beispiele" : "Examples"}
                         </h4>
                         {block.examples.map((ex, i) => (
                           <div

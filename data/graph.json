@@ -1,6 +1,20 @@
 {
   "nodes": [
     {
+      "slug": "modal-verbs",
+      "title": "Modal Verbs",
+      "titleDe": "Modalverben",
+      "type": "concept",
+      "status": "complete",
+      "summary": "Modal verbs are the engine of German sentence nuance — expressing ability, necessity, permission, and polite wishes across all tenses.",
+      "levels": ["A1", "A2", "B1"],
+      "tags": ["grammar", "verbs", "conjugation", "sentence-structure", "subjunctive"],
+      "related": [
+        { "slug": "expressing-reasons", "type": "concept", "relation": "used-with" },
+        { "slug": "prepositions", "type": "concept", "relation": "used-with" }
+      ]
+    },
+    {
       "slug": "prepositions",
       "title": "Prepositions",
       "titleDe": "Präpositionen",
@@ -360,6 +374,12 @@
     { "source": "a2", "sourceType": "level", "target": "b1", "targetType": "level", "label": "leads to" },
 
     { "source": "subordinate-clause", "sourceType": "grammar", "target": "sentence-order", "targetType": "grammar", "label": "related" },
-    { "source": "conjunction", "sourceType": "grammar", "target": "subordinate-clause", "targetType": "grammar", "label": "related" }
+    { "source": "conjunction", "sourceType": "grammar", "target": "subordinate-clause", "targetType": "grammar", "label": "related" },
+
+    { "source": "a1", "sourceType": "level", "target": "modal-verbs", "targetType": "concept", "label": "introduces" },
+    { "source": "a2", "sourceType": "level", "target": "modal-verbs", "targetType": "concept", "label": "deepens" },
+    { "source": "b1", "sourceType": "level", "target": "modal-verbs", "targetType": "concept", "label": "masters" },
+    { "source": "modal-verbs", "sourceType": "concept", "target": "expressing-reasons", "targetType": "concept", "label": "used-with" },
+    { "source": "modal-verbs", "sourceType": "concept", "target": "prepositions", "targetType": "concept", "label": "used-with" }
   ]
 }
