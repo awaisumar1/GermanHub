@@ -4,11 +4,15 @@ import { ChevronRight } from "lucide-react";
 
 interface BreadcrumbsProps {
   items: BreadcrumbItem[];
+  compact?: boolean;
 }
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, compact = false }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm mb-8">
+    <nav
+      aria-label="Breadcrumb"
+      className={`flex items-center gap-1.5 ${compact ? "mb-3 text-xs" : "mb-8 text-sm"}`}
+    >
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         return (

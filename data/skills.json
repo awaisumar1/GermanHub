@@ -1,0 +1,99 @@
+[
+  {
+    "slug": "speaking",
+    "title": "Speaking",
+    "titleDe": "Sprechen",
+    "type": "skill",
+    "status": "complete",
+    "summary": "Oral communication skills for German learners. Practice speaking naturally using reason words and connectors in conversations.",
+    "levels": ["A2", "B1", "B2"],
+    "tags": ["skill", "speaking", "oral", "communication", "conversation"],
+    "related": [
+      { "slug": "travel", "type": "theme", "relation": "practiced-in" },
+      { "slug": "daily-life", "type": "theme", "relation": "practiced-in" },
+      { "slug": "deshalb", "type": "word", "relation": "uses" },
+      { "slug": "deswegen", "type": "word", "relation": "uses" }
+    ],
+    "content": [
+      {
+        "title": "Conversational Connectors",
+        "explanation": "In spoken German, some words are preferred over others for expressing reasons. While 'deshalb' is standard, native speakers often use 'deswegen' or simply 'weil' with colloquial main-clause word order in fast speech.",
+        "examples": [
+          { "de": "Ich hab den Bus verpasst, deswegen bin ich zu spät.", "en": "I missed the bus, that's why I'm late.", "highlight": ["deswegen"] }
+        ]
+      },
+      {
+        "title": "Colloquial 'weil'",
+        "explanation": "In casual spoken German, it is very common to hear 'weil' followed by standard main-clause word order (verb in second position), even though traditional grammar requires verb-final order.",
+        "examples": [
+          { "de": "Ich kann nicht kommen, weil ich habe keine Zeit.", "en": "I can't come, because I have no time.", "highlight": ["weil", "habe"] }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "writing",
+    "title": "Writing",
+    "titleDe": "Schreiben",
+    "type": "skill",
+    "status": "complete",
+    "summary": "Written communication skills for German learners. Focus on using formal connectors like 'denn' and 'daher' in essays, emails, and reports.",
+    "levels": ["B1", "B2"],
+    "tags": ["skill", "writing", "written", "formal", "essays"],
+    "related": [
+      { "slug": "denn", "type": "word", "relation": "uses" },
+      { "slug": "daher", "type": "word", "relation": "uses" },
+      { "slug": "deshalb", "type": "word", "relation": "uses" },
+      { "slug": "formal-language", "type": "skill", "relation": "related" }
+    ],
+    "content": [
+      {
+        "title": "Formal Connectors",
+        "explanation": "In written German, precision and variety are important. Instead of repeatedly using 'weil' or 'deshalb', use words like 'daher' (hence) and 'denn' (for) to elevate your writing style.",
+        "examples": [
+          { "de": "Das Wetter war schlecht, daher blieben wir im Hotel.", "en": "The weather was bad, hence we stayed in the hotel.", "highlight": ["daher"] }
+        ]
+      },
+      {
+        "title": "Structuring Arguments",
+        "explanation": "When writing an essay or a formal email, use connectors to logically link your points. Start with a premise and follow with a consequence.",
+        "examples": [
+          { "de": "Wir haben das Budget überschritten. Deshalb müssen wir Kosten sparen.", "en": "We exceeded the budget. Therefore, we must save costs.", "highlight": ["Deshalb"] }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "formal-language",
+    "title": "Formal Language",
+    "titleDe": "Formelle Sprache",
+    "type": "skill",
+    "status": "complete",
+    "summary": "Understanding register in German — when to use formal words like 'daher' and 'denn' versus casual alternatives like 'deswegen'.",
+    "levels": ["B1", "B2"],
+    "tags": ["skill", "formal", "register", "politeness", "professional"],
+    "related": [
+      { "slug": "daher", "type": "word", "relation": "uses" },
+      { "slug": "denn", "type": "word", "relation": "uses" },
+      { "slug": "writing", "type": "skill", "relation": "related" },
+      { "slug": "expressing-reasons", "type": "concept", "relation": "relevant-to" }
+    ],
+    "content": [
+      {
+        "title": "Register Choice",
+        "explanation": "Register refers to the level of formality. German distinguishes clearly between formal/professional contexts and informal/casual ones. Choosing the right connector signals competence and respect.",
+        "examples": [
+          { "de": "Ich war krank. Daher konnte ich nicht am Meeting teilnehmen.", "en": "I was sick. Hence, I could not attend the meeting.", "highlight": ["Daher"] }
+        ]
+      },
+      {
+        "title": "Comparing Formal and Informal",
+        "explanation": "Compare 'daher' (formal) with 'deswegen' (informal). Both mean 'therefore', but they are used in different contexts.",
+        "examples": [
+          { "de": "Formal: Daher bitten wir um Ihr Verständnis.", "en": "Formal: Hence, we ask for your understanding.", "highlight": ["Daher"] },
+          { "de": "Informal: Deswegen bin ich zu spät.", "en": "Informal: That's why I'm late.", "highlight": ["Deswegen"] }
+        ]
+      }
+    ]
+  }
+]

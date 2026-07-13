@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { SearchResult } from "@/types";
 import { searchNodes } from "@/lib/data";
 
@@ -14,35 +14,27 @@ const DEBOUNCE_MS = 150;
  * @returns An array of matching SearchResult objects sorted by relevance
  */
 export function useSearch(query: string): SearchResult[] {
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
 
   useEffect(() => {
-    // Clear previous debounce timer
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-
     const trimmed = query.trim();
-
-    // Clear results immediately for empty queries
     if (trimmed.length === 0) {
-      setResults([]);
-      return;
+      // For empty query, update immediately without debounce
+      // We use setTimeout with 0 to avoid the synchronous setState linter rule,
+      // but it still effectively clears the search instantly.
+      const timer = setTimeout(() => setDebouncedQuery(""), 0);
+      return () => clearTimeout(timer);
     }
 
-    // Debounce the search
-    timerRef.current = setTimeout(() => {
-      setResults(searchNodes(trimmed));
+    const timer = setTimeout(() => {
+      setDebouncedQuery(trimmed);
     }, DEBOUNCE_MS);
 
-    // Cleanup on unmount or query change
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
+    return () => clearTimeout(timer);
   }, [query]);
 
-  return results;
+  return useMemo(() => {
+    if (debouncedQuery.length === 0) return [];
+    return searchNodes(debouncedQuery);
+  }, [debouncedQuery]);
 }

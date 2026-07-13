@@ -112,13 +112,14 @@ export function UnifiedConceptView({
   // Language Mode helpers
   const showDe = languageMode === "both" || languageMode === "de";
   const showEn = languageMode === "both" || languageMode === "en";
+  const isPageMode = mode === "page";
 
 
   const content = (
     <div className={`flex flex-col ${mode === "drawer" ? "h-full" : "min-h-[calc(100vh-56px)]"} w-full bg-[var(--color-bg)]`}>
       {/* Header & Filter */}
-      <div className={`${mode === "drawer" ? "sticky top-0 z-40 bg-[var(--color-bg)]/90 backdrop-blur-md" : "bg-[var(--color-bg)]"} border-b border-[var(--color-border)] px-6 py-6`}>
-        <div className="flex items-center justify-between mb-4">
+      <div className={`${mode === "drawer" ? "sticky top-0 z-40 bg-[var(--color-bg)]/90 backdrop-blur-md px-6 py-6" : "bg-[var(--color-bg)] px-6 pt-3 pb-5 sm:pt-4 sm:pb-5"} border-b border-[var(--color-border)]`}>
+        <div className={`flex items-center justify-between ${isPageMode ? "mb-2" : "mb-4"}`}>
           <div className="flex items-center gap-2">
             <span className="node-dot node-dot-concept" />
             <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)]">
@@ -136,19 +137,19 @@ export function UnifiedConceptView({
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-1">
+        <h1 className={`${isPageMode ? "text-3xl sm:text-[2.35rem]" : "text-3xl sm:text-4xl"} font-bold text-[var(--color-text)] mb-0.5 leading-tight`}>
           {concept.title}
         </h1>
         {concept.titleDe && (
-          <p className="text-lg text-[var(--color-text-muted)] italic mb-6">
+          <p className={`${isPageMode ? "text-base sm:text-lg mb-4" : "text-lg mb-6"} text-[var(--color-text-muted)] italic`}>
             {concept.titleDe}
           </p>
         )}
 
         {/* Multi-Select Filter Container - Inlined for better UX */}
-        <div className="flex flex-col gap-4">
+        <div className={`flex flex-col ${isPageMode ? "gap-3" : "gap-4"}`}>
           {/* Row 1: Levels & Categories */}
-          <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
+          <div className={`flex flex-col lg:flex-row lg:items-center ${isPageMode ? "gap-3 lg:gap-6" : "gap-4 lg:gap-8"}`}>
             {/* Level Filters */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
               <span className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-dim)] flex-shrink-0">
@@ -259,7 +260,7 @@ export function UnifiedConceptView({
       </div>
 
       {/* Scrollable Content Body */}
-      <div className={`${mode === "drawer" ? "flex-1 overflow-y-auto" : "flex-1"} px-6 py-8`}>
+      <div className={`${mode === "drawer" ? "flex-1 overflow-y-auto px-6 py-8" : "flex-1 px-6 py-6 sm:py-7"}`}>
         {/* Dynamic Overview */}
         {(activeCategories.length === 0 || activeCategories.includes("Wortschatz") || activeCategories.includes("Praxis")) && (
           <div className="mb-12 animate-fade-in">

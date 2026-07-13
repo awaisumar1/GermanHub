@@ -1,0 +1,36 @@
+[
+  {
+    "slug": "common-mistakes",
+    "title": "Common Mistakes",
+    "titleDe": "Häufige Fehler",
+    "type": "mistake",
+    "status": "complete",
+    "summary": "Common errors German learners make when expressing reasons — wrong word order after 'weil', confusing 'denn' and 'deshalb', and more.",
+    "levels": ["A2", "B1"],
+    "tags": ["mistakes", "errors", "word-order", "learners"],
+    "related": [
+      { "slug": "expressing-reasons", "type": "concept", "relation": "documents-mistakes-in" },
+      { "slug": "weil", "type": "word", "relation": "common-error" },
+      { "slug": "denn", "type": "word", "relation": "common-error" },
+      { "slug": "deshalb", "type": "word", "relation": "common-error" }
+    ],
+    "content": [
+      {
+        "title": "Main Clause Word Order after 'weil'",
+        "explanation": "A very common mistake for learners is using main-clause word order after 'weil'. While native speakers sometimes do this in casual speech, it is grammatically incorrect in writing and formal speech. 'weil' requires the verb at the end.",
+        "examples": [
+          { "de": "Incorrect: Ich bleibe zu Hause, weil ich bin krank.", "en": "Incorrect because the verb 'bin' is not at the end.", "highlight": ["bin", "krank"] },
+          { "de": "Correct: Ich bleibe zu Hause, weil ich krank bin.", "en": "Correct verb-final order.", "highlight": ["krank", "bin"] }
+        ]
+      },
+      {
+        "title": "Confusing 'denn' and 'deshalb'",
+        "explanation": "Learners often mix up 'denn' (because) and 'deshalb' (therefore). 'denn' introduces the cause, while 'deshalb' introduces the consequence. Additionally, 'denn' does not change the word order (Position 0), while 'deshalb' occupies Position 1, triggering inversion.",
+        "examples": [
+          { "de": "Incorrect: Ich bin müde, deshalb ich habe viel gearbeitet.", "en": "Confusing cause and consequence, plus wrong word order.", "highlight": ["deshalb", "ich", "habe"] },
+          { "de": "Correct: Ich habe viel gearbeitet, deshalb bin ich müde.", "en": "Correct: cause first, consequence second. Inversion after 'deshalb'.", "highlight": ["deshalb", "bin", "ich"] }
+        ]
+      }
+    ]
+  }
+]

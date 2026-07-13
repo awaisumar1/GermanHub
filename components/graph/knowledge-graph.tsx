@@ -6,7 +6,6 @@ import {
   ReactFlow,
   Controls,
   ReactFlowProvider,
-  useReactFlow,
   useOnViewportChange,
   type Node,
   type Edge,
@@ -17,12 +16,9 @@ import "@xyflow/react/dist/style.css";
 import graphData from "@/data/graph.json";
 import type { NodeType } from "@/types";
 import { PremiumNode } from "./premium-node";
-import { GroupNode } from "./group-node";
-import { UnifiedConceptView } from "./unified-concept-view";
 
 const nodeTypes = {
   premium: PremiumNode,
-  group: GroupNode,
 };
 
 type ZoomLevel = "macro" | "medium" | "micro";
@@ -33,107 +29,53 @@ function getZoomLevel(zoom: number): ZoomLevel {
   return "micro";
 }
 
-function getNodeHref(slug: string, type: NodeType): string {
-  switch (type) {
-    case "concept": return `/concept/${slug}`;
-    case "word": return `/word/${slug}`;
-    case "theme": return `/theme/${slug}`;
-    default: return `/node/${type}/${slug}`;
-  }
-}
+import { getNodeHref } from "@/lib/routes";
 
 // -------------------------------------------------------------------------
 // Layout Engine
 // -------------------------------------------------------------------------
 
-// Maps data nodes to synthetic parent IDs
-const GROUP_MAPPING: Record<string, string> = {
-  // Vocabulary
-  weil: "group-vocab",
-  denn: "group-vocab",
-  deshalb: "group-vocab",
-  deswegen: "group-vocab",
-  daher: "group-vocab",
-  // Grammar & Concepts
-  "expressing-reasons": "group-grammar",
-  "subordinate-clause": "group-grammar",
-  "sentence-order": "group-grammar",
-  "conjunction": "group-grammar",
-  // Application
-  travel: "group-app",
-  "daily-life": "group-app",
-  "formal-language": "group-app",
-  speaking: "group-app",
-  writing: "group-app",
-  // Progression
-  a2: "group-prog",
-  b1: "group-prog",
-  "common-mistakes": "group-prog",
+// Curated subset for initial focused neighborhood
+const INITIAL_FOCUSED_NODES = new Set([
+  "expressing-reasons",
+  "weil", "denn", "deshalb", "deswegen", "daher",
+  "sentence-order", "subordinate-clause", "conjunction",
+  "travel",
+  "modal-verbs"
+]);
+
+// Curated positions for the vertical slice layout - compacted layout
+const CURATED_POSITIONS: Record<string, { x: number; y: number }> = {
+  // Centre
+  "expressing-reasons": { x: 0, y: 0 },
+  // Expressions (left/top-left, closer to centre)
+  "weil": { x: -140, y: -100 },
+  "denn": { x: -60, y: -130 },
+  "deshalb": { x: -160, y: -30 },
+  "deswegen": { x: -180, y: 40 },
+  "daher": { x: -120, y: 100 },
+  // Grammar (right/upper-right, medium distance)
+  "sentence-order": { x: 180, y: -70 },
+  "subordinate-clause": { x: 100, y: -130 },
+  "conjunction": { x: 200, y: 0 },
+  // Context (bottom)
+  "travel": { x: 0, y: 140 },
+  // Secondary (farther away)
+  "modal-verbs": { x: 240, y: 130 },
 };
 
-// Hardcoded positions for children within their 420x340 parent boxes
-const CHILD_POSITIONS: Record<string, { x: number; y: number }> = {
-  // Vocab
-  weil: { x: 30, y: 70 },
-  denn: { x: 230, y: 70 },
-  deshalb: { x: 30, y: 160 },
-  deswegen: { x: 230, y: 160 },
-  daher: { x: 130, y: 250 },
-  // Grammar
-  "expressing-reasons": { x: 100, y: 60 }, // slightly wider pill
-  "subordinate-clause": { x: 30, y: 160 },
-  "sentence-order": { x: 240, y: 160 },
-  "conjunction": { x: 130, y: 260 },
-  // App
-  travel: { x: 40, y: 70 },
-  "daily-life": { x: 220, y: 70 },
-  "formal-language": { x: 120, y: 160 },
-  speaking: { x: 40, y: 250 },
-  writing: { x: 220, y: 250 },
-  // Prog
-  a2: { x: 160, y: 70 },
-  b1: { x: 160, y: 160 },
-  "common-mistakes": { x: 110, y: 250 },
-};
-
-function generateInitialNodes(): Node[] {
+function generateNodes(visibleSlugs: Set<string>, placedPositions: Record<string, {x: number, y: number}>): Node[] {
   const nodes: Node[] = [];
 
-  // 1. Synthetic Parent Nodes (2x2 grid spacing)
-  const parents = [
-    { id: "group-vocab", label: "Vocabulary", color: "#22d3ee", x: 0, y: 0 },
-    { id: "group-grammar", label: "Grammar", color: "#8b5cf6", x: 500, y: 0 },
-    { id: "group-app", label: "Application", color: "#f59e0b", x: 0, y: 400 },
-    { id: "group-prog", label: "Progression", color: "#10b981", x: 500, y: 400 },
-  ];
-
-  for (const p of parents) {
-    nodes.push({
-      id: p.id,
-      type: "group",
-      position: { x: p.x, y: p.y },
-      style: { width: 420, height: 340 },
-      data: {
-        label: p.label,
-        color: p.color,
-        isHovered: false,
-        isDimmed: false,
-        zoomLevel: "macro",
-      },
-    });
-  }
-
-  // 2. Child Nodes
   for (const n of graphData.nodes) {
-    const parentId = GROUP_MAPPING[n.slug];
-    const pos = CHILD_POSITIONS[n.slug] || { x: 50, y: 50 };
+    if (!visibleSlugs.has(n.slug)) continue;
 
+    const pos = placedPositions[n.slug];
+    
     nodes.push({
       id: `premium:${n.slug}`,
       type: "premium",
-      parentId: parentId,
-      position: pos,
-      // extent: "parent", // Keeps them strictly bounded
+      position: pos || { x: 0, y: 0 },
       data: {
         label: n.title,
         slug: n.slug,
@@ -149,37 +91,47 @@ function generateInitialNodes(): Node[] {
   return nodes;
 }
 
-function generateInitialEdges(): Edge[] {
-  return graphData.edges.map((e, i) => {
-    // Determine edge color based on source node type
-    const sourceNode = graphData.nodes.find(n => n.slug === e.source);
-    const color = sourceNode?.type === "word" ? "#22d3ee" :
-                  sourceNode?.type === "concept" ? "#8b5cf6" :
-                  sourceNode?.type === "theme" ? "#f59e0b" : "#a1a1aa";
+function formatLearnerEdgeLabel(rawLabel: string): string | null {
+  const mapping: Record<string, string> = {
+    "belongs to": "expressed with",
+    "requires": "affects",
+    "used in": "practised in",
+    "used-with": "used with",
+  };
+  return mapping[rawLabel] || null; // hide low-value/unknown edges
+}
 
-    return {
-      id: `e-${i}`,
-      source: `premium:${e.source}`,
-      target: `premium:${e.target}`,
-      label: e.label,
-      type: "smoothstep",
-      animated: true,
-      hidden: true, // Hidden by default
-      style: {
-        stroke: color,
-        strokeWidth: 2,
-        opacity: 0.8,
-      },
-      labelStyle: { fill: "#fafafa", fontSize: 10, fontWeight: 500 },
-      labelBgStyle: { fill: "#18181b", fillOpacity: 0.9, rx: 4 },
-      markerEnd: {
-        type: MarkerType.ArrowClosed,
-        color: color,
-        width: 15,
-        height: 15,
-      },
-    };
-  });
+function generateEdges(visibleSlugs: Set<string>): Edge[] {
+  return graphData.edges
+    .filter(e => visibleSlugs.has(e.source) && visibleSlugs.has(e.target))
+    .map((e, i) => {
+      const learnerLabel = formatLearnerEdgeLabel(e.label);
+      const color = "var(--color-text-dim)"; // Neutral default
+
+      return {
+        id: `e-${i}`,
+        source: `premium:${e.source}`,
+        target: `premium:${e.target}`,
+        label: learnerLabel || undefined,
+        type: "smoothstep",
+        animated: false, // Remove animation for calmer default
+        hidden: false,
+        data: { originalLabel: learnerLabel },
+        style: {
+          stroke: color,
+          strokeWidth: 1.5,
+          opacity: 0.5,
+        },
+        labelStyle: { fill: "var(--color-text-secondary)", fontSize: 10, fontWeight: 500 },
+        labelBgStyle: { fill: "var(--color-bg)", fillOpacity: 0.8, rx: 4, stroke: "transparent" },
+        markerEnd: {
+          type: MarkerType.ArrowClosed,
+          color: color,
+          width: 12,
+          height: 12,
+        },
+      };
+    });
 }
 
 // -------------------------------------------------------------------------
@@ -188,14 +140,20 @@ function generateInitialEdges(): Edge[] {
 
 function InnerGraph() {
   const router = useRouter();
-  const { getZoom } = useReactFlow();
 
-  const [nodes, setNodes] = useState<Node[]>(generateInitialNodes);
-  const [edges, setEdges] = useState<Edge[]>(generateInitialEdges);
+  const [visibleSlugs, setVisibleSlugs] = useState<Set<string>>(INITIAL_FOCUSED_NODES);
+  
+  // Track layout coordinates to avoid recalculating on every render
+  const [placedPositions, setPlacedPositions] = useState<Record<string, {x: number, y: number}>>(CURATED_POSITIONS);
+
+  const [nodes, setNodes] = useState<Node[]>(() => generateNodes(visibleSlugs, placedPositions));
+  const [edges, setEdges] = useState<Edge[]>(() => generateEdges(visibleSlugs));
   
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>("macro");
-  const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
-  const [activeConceptSlug, setActiveConceptSlug] = useState<string | null>(null);
+  const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
+  const [lockedNodeId, setLockedNodeId] = useState<string | null>(null);
+
+  const activeNodeId = lockedNodeId || hoveredNodeId;
 
   // Handle Zoom / LoD Updates
   useOnViewportChange({
@@ -207,85 +165,184 @@ function InnerGraph() {
     },
   });
 
+  // Re-generate nodes/edges when visibility changes
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- React Flow requires syncing external props into its internal interactive state via effects
+    setNodes(generateNodes(visibleSlugs, placedPositions));
+     
+    setEdges(generateEdges(visibleSlugs));
+  }, [visibleSlugs, placedPositions, setNodes, setEdges]);
+
   // Sync state into node/edge data
   useEffect(() => {
-    // Find Hop 1 neighbors
-    const activeEdges = edges.filter(e => 
-      e.source === activeNodeId || e.target === activeNodeId
-    );
-    
-    const neighborIds = new Set<string>();
+    // Determine active neighborhood (if any node is active)
+    const activeNeighborIds = new Set<string>();
     if (activeNodeId) {
-      neighborIds.add(activeNodeId);
-      activeEdges.forEach(e => {
-        neighborIds.add(e.source);
-        neighborIds.add(e.target);
+      activeNeighborIds.add(activeNodeId);
+      graphData.edges.forEach((e) => {
+        if (!visibleSlugs.has(e.source) || !visibleSlugs.has(e.target)) return;
+
+        const sourceId = `premium:${e.source}`;
+        const targetId = `premium:${e.target}`;
+
+        if (sourceId === activeNodeId || targetId === activeNodeId) {
+          activeNeighborIds.add(sourceId);
+          activeNeighborIds.add(targetId);
+        }
       });
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- React Flow requires syncing external props into its internal interactive state via effects
     setNodes((nds) =>
       nds.map((n) => {
-        let isHovered = false;
-        let isDimmed = false;
-
-        if (n.type === "premium") {
-          isHovered = n.id === activeNodeId;
-          isDimmed = activeNodeId !== null && !neighborIds.has(n.id);
-        }
-
-        // For groups, update zoom level
-        if (n.type === "group") {
-          isDimmed = activeNodeId !== null; // Dim groups when a specific node is active
-          return {
-            ...n,
-            data: { ...n.data, zoomLevel, isDimmed, isHovered },
-          };
-        }
-
+        const isHovered = n.id === activeNodeId;
+        const isDimmed = activeNodeId !== null && !activeNeighborIds.has(n.id);
+        
         return {
           ...n,
-          hidden: zoomLevel === "macro", // Hide micro nodes at macro zoom
+          hidden: zoomLevel === "macro" && n.data.type !== "concept" && n.data.type !== "word" && n.data.type !== "theme" && n.data.type !== "grammar", 
           data: { ...n.data, isHovered, isDimmed },
         };
       })
     );
 
+     
     setEdges((eds) =>
-      eds.map((e) => ({
-        ...e,
-        hidden: !activeNodeId || (e.source !== activeNodeId && e.target !== activeNodeId),
-      }))
+      eds.map((e) => {
+        const isConnectedToActive = e.source === activeNodeId || e.target === activeNodeId;
+        const isConnectedToCenter = e.source === "premium:expressing-reasons" || e.target === "premium:expressing-reasons";
+        const isVisibleInitially = isConnectedToCenter;
+
+        const isHidden = activeNodeId 
+          ? !isConnectedToActive // Hide if not connected to active node
+          : !isVisibleInitially; // Default filtering
+
+        const isPrimary = isConnectedToCenter || isConnectedToActive;
+        const isActive = activeNodeId !== null && isConnectedToActive;
+        
+        const strokeColor = isActive ? "var(--color-accent)" : "var(--color-text-dim)";
+        const opacity = activeNodeId !== null ? (isActive ? 1 : 0) : 0.4;
+        
+        // Only show individual "expressed with" labels on hover/focus to reduce noise
+        const shouldShowLabel = isActive || (e.data?.originalLabel !== "expressed with");
+
+        return {
+          ...e,
+          hidden: isHidden,
+          label: shouldShowLabel ? (e.data?.originalLabel as string | undefined) : undefined,
+          style: {
+            ...e.style,
+            stroke: strokeColor,
+            opacity: opacity,
+            strokeWidth: isActive ? 2 : 1.5,
+            strokeDasharray: isPrimary ? "none" : "4 4",
+            transition: "all 0.3s ease",
+          },
+          labelStyle: {
+            ...e.labelStyle,
+            fill: isActive ? "var(--color-accent)" : "var(--color-text-secondary)",
+            opacity: opacity, // ensures label hides with edge path
+          },
+          labelBgStyle: {
+            ...e.labelBgStyle,
+            opacity: opacity,
+          },
+          markerEnd: {
+            type: MarkerType.ArrowClosed,
+            color: strokeColor,
+            width: 12,
+            height: 12,
+          }
+        };
+      })
     );
-  }, [zoomLevel, activeNodeId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [zoomLevel, activeNodeId, visibleSlugs, setNodes, setEdges]);
 
   const onNodeMouseEnter: NodeMouseHandler = useCallback((_, node) => {
-    if (node.type === "premium") {
-      setActiveNodeId(node.id);
+    if (node.type === "premium" && !lockedNodeId) {
+      setHoveredNodeId(node.id);
     }
-  }, []);
+  }, [lockedNodeId]);
 
   const onNodeMouseLeave: NodeMouseHandler = useCallback((_, node) => {
     if (node.type === "premium") {
-      setActiveNodeId(null);
+      setHoveredNodeId(null);
     }
   }, []);
 
   const onNodeClick: NodeMouseHandler = useCallback(
     (_, node) => {
       if (node.type === "premium") {
-        const { slug, type } = node.data as { slug: string; type: NodeType };
-        if (type === "concept") {
-          setActiveConceptSlug(slug);
-        } else {
-          router.push(getNodeHref(slug, type));
-        }
+        setLockedNodeId(prev => prev === node.id ? null : node.id);
       }
     },
-    [router]
+    []
   );
 
+  const onPaneClick = useCallback(() => {
+    setLockedNodeId(null);
+  }, []);
+
+  const lockedNodeData = useMemo(() => {
+    if (!lockedNodeId) return null;
+    return nodes.find(n => n.id === lockedNodeId)?.data as { label: string; slug: string; type: NodeType } | undefined;
+  }, [lockedNodeId, nodes]);
+
+  const handleExpand = useCallback(() => {
+    if (!lockedNodeData) return;
+    
+    // Find missing neighbors up to max 4-6
+    const neighbors = graphData.edges
+      .filter(e => e.source === lockedNodeData.slug || e.target === lockedNodeData.slug)
+      .map(e => e.source === lockedNodeData.slug ? e.target : e.source)
+      // Exclude CEFR taxonomy unless selected
+      .filter(slug => {
+        const type = graphData.nodes.find(n => n.slug === slug)?.type;
+        return type !== "level"; 
+      });
+
+    const newSlugs = new Set(visibleSlugs);
+    let addedCount = 0;
+    
+    // Deterministic position layout for newly expanded nodes
+    const anchorPos = placedPositions[lockedNodeData.slug] || {x: 0, y: 0};
+    const newPositions = { ...placedPositions };
+    let gridOffset = 0;
+
+    for (const n of neighbors) {
+      if (!newSlugs.has(n) && addedCount < 5) {
+        newSlugs.add(n);
+        addedCount++;
+        
+        // Simple angular placement around the anchor
+        const angle = (gridOffset * 72) * (Math.PI / 180);
+        newPositions[n] = {
+          x: anchorPos.x + Math.cos(angle) * 160,
+          y: anchorPos.y + Math.sin(angle) * 160,
+        };
+        gridOffset++;
+      }
+    }
+    
+    if (addedCount > 0) {
+      setPlacedPositions(newPositions);
+      setVisibleSlugs(newSlugs);
+    }
+  }, [lockedNodeData, visibleSlugs, placedPositions]);
+
+  const handleReset = useCallback(() => {
+    setVisibleSlugs(INITIAL_FOCUSED_NODES);
+    setPlacedPositions(CURATED_POSITIONS);
+    setLockedNodeId(null);
+  }, []);
+
   return (
-    <>
+    <div className="relative w-full h-full group/graph">
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-[var(--color-bg)]/80 backdrop-blur-sm border border-[var(--color-border)] rounded-full px-4 py-1.5 z-10 opacity-0 group-hover/graph:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <span className="text-xs text-[var(--color-text-dim)] font-medium">
+          Select a node to inspect its connections
+        </span>
+      </div>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -293,6 +350,7 @@ function InnerGraph() {
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}
         onNodeClick={onNodeClick}
+        onPaneClick={onPaneClick}
         fitView
         fitViewOptions={{ padding: 0.2 }}
         minZoom={0.3}
@@ -303,7 +361,7 @@ function InnerGraph() {
         <Controls
           showInteractive={false}
           style={{
-            background: "var(--color-bg-elevated)",
+            background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
             borderRadius: "12px",
             overflow: "hidden",
@@ -311,15 +369,41 @@ function InnerGraph() {
         />
       </ReactFlow>
 
-      {/* Unified Concept Slide-out Drawer */}
-      {activeConceptSlug && (
-        <UnifiedConceptView
-          slug={activeConceptSlug}
-          mode="drawer"
-          onClose={() => setActiveConceptSlug(null)}
-        />
+      {/* Selected Node Action Panel */}
+      {lockedNodeData && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-xl rounded-2xl px-4 py-3 sm:px-6 sm:py-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 z-50 animate-in slide-in-from-bottom-4 w-[90%] sm:w-auto max-w-md">
+          <div className="flex flex-col text-center sm:text-left w-full sm:w-auto">
+            <span className="text-xs font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">{lockedNodeData.type}</span>
+            <span className="text-base font-bold text-[var(--color-text)] truncate">{lockedNodeData.label}</span>
+          </div>
+          <div className="hidden sm:block h-8 w-px bg-[var(--color-border)] mx-1"></div>
+          <div className="flex w-full sm:w-auto gap-2">
+            <button
+              onClick={() => router.push(getNodeHref(lockedNodeData.slug, lockedNodeData.type))}
+              className="flex-1 whitespace-nowrap px-4 py-2 bg-[var(--color-accent)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none"
+            >
+              Explore Node
+            </button>
+            <button
+              onClick={handleExpand}
+              className="flex-1 whitespace-nowrap px-4 py-2 bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] text-sm font-semibold rounded-lg hover:bg-[var(--color-surface-hover)] transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none"
+            >
+              Show related
+            </button>
+          </div>
+        </div>
       )}
-    </>
+
+      {/* Reset View Button */}
+      {visibleSlugs.size > INITIAL_FOCUSED_NODES.size && (
+        <button
+          onClick={handleReset}
+          className="absolute top-6 right-6 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-md rounded-lg px-4 py-2 text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-surface-hover)] transition-colors z-50 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none"
+        >
+          Reset view
+        </button>
+      )}
+    </div>
   );
 }
 

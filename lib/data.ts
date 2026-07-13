@@ -1,6 +1,7 @@
 import type {
   GraphData,
   GraphNode,
+  GraphNodeBase,
   Concept,
   Word,
   Theme,
@@ -12,15 +13,16 @@ import graphJson from "@/data/graph.json";
 import conceptsJson from "@/data/concepts.json";
 import wordsJson from "@/data/words.json";
 import themesJson from "@/data/themes.json";
+import grammarJson from "@/data/grammar.json";
+import skillsJson from "@/data/skills.json";
+import mistakesJson from "@/data/mistakes.json";
 
 // ---------------------------------------------------------------------------
 // Internal: merge detailed data into graph nodes
 // ---------------------------------------------------------------------------
 
 /** Detailed concepts keyed by slug for O(1) lookup */
-const conceptsBySlug = new Map(
-  (conceptsJson as Concept[]).map((c) => [c.slug, c])
-);
+const conceptsBySlug = new Map((conceptsJson as Concept[]).map((c) => [c.slug, c]));
 
 /** Detailed words keyed by slug for O(1) lookup */
 const wordsBySlug = new Map((wordsJson as Word[]).map((w) => [w.slug, w]));
@@ -28,19 +30,34 @@ const wordsBySlug = new Map((wordsJson as Word[]).map((w) => [w.slug, w]));
 /** Detailed themes keyed by slug for O(1) lookup */
 const themesBySlug = new Map((themesJson as Theme[]).map((t) => [t.slug, t]));
 
+/** Detailed grammar keyed by slug for O(1) lookup */
+const grammarBySlug = new Map((grammarJson as GraphNodeBase[]).map((g) => [g.slug, g]));
+
+/** Detailed skills keyed by slug for O(1) lookup */
+const skillsBySlug = new Map((skillsJson as GraphNodeBase[]).map((s) => [s.slug, s]));
+
+/** Detailed mistakes keyed by slug for O(1) lookup */
+const mistakesBySlug = new Map((mistakesJson as GraphNodeBase[]).map((m) => [m.slug, m]));
+
 /**
  * Resolve a graph node to its full type-specific shape.
- * For concept/word/theme nodes with detailed JSON files, merge the full data.
- * For stubs (grammar, level, skill, mistake), return the graph node as-is.
+ * For nodes with detailed JSON files, merge the full data.
+ * For stubs, return the graph node as-is.
  */
 function resolveNode(node: GraphNode): GraphNode {
   switch (node.type) {
     case "concept":
-      return conceptsBySlug.get(node.slug) ?? node;
+      return (conceptsBySlug.get(node.slug) as GraphNode) ?? node;
     case "word":
-      return wordsBySlug.get(node.slug) ?? node;
+      return (wordsBySlug.get(node.slug) as GraphNode) ?? node;
     case "theme":
-      return themesBySlug.get(node.slug) ?? node;
+      return (themesBySlug.get(node.slug) as GraphNode) ?? node;
+    case "grammar":
+      return (grammarBySlug.get(node.slug) as GraphNode) ?? node;
+    case "skill":
+      return (skillsBySlug.get(node.slug) as GraphNode) ?? node;
+    case "mistake":
+      return (mistakesBySlug.get(node.slug) as GraphNode) ?? node;
     default:
       return node;
   }

@@ -21,14 +21,7 @@ import type { NodeType, GraphNode } from "@/types";
 // Helpers
 // ---------------------------------------------------------------------------
 
-function getNodeHref(slug: string, type: NodeType): string {
-  switch (type) {
-    case "concept": return `/concept/${slug}`;
-    case "word": return `/word/${slug}`;
-    case "theme": return `/theme/${slug}`;
-    default: return `/node/${type}/${slug}`;
-  }
-}
+import { getNodeHref } from "@/lib/routes";
 
 function getNodeColor(type: NodeType): string {
   const colors: Record<NodeType, string> = {
@@ -60,8 +53,8 @@ const CURATED_SLUGS: { slug: string; type: NodeType }[] = [
   { slug: "weil", type: "word" },
   { slug: "denn", type: "word" },
   { slug: "travel", type: "theme" },
-  { slug: "daily-life", type: "theme" },
-  { slug: "deshalb", type: "word" },
+  { slug: "sentence-order", type: "grammar" },
+  { slug: "modal-verbs", type: "concept" },
 ];
 
 function getCuratedItems(): GraphNode[] {
@@ -78,6 +71,7 @@ interface ExplorationMode {
   icon: React.ElementType;
   label: string;
   description: string;
+  example?: string;
   href: string;
   color: string;
 }
@@ -87,6 +81,7 @@ const EXPLORATION_MODES: ExplorationMode[] = [
     icon: Layers,
     label: "Concepts",
     description: "Understand connected linguistic ideas",
+    example: "e.g., Expressing Reasons",
     href: "/concept/expressing-reasons",
     color: "var(--color-concept)",
   },
@@ -94,6 +89,7 @@ const EXPLORATION_MODES: ExplorationMode[] = [
     icon: MapIcon,
     label: "Themes",
     description: "Learn for real-life situations",
+    example: "e.g., Travel",
     href: "/theme/travel",
     color: "var(--color-theme)",
   },
@@ -101,13 +97,15 @@ const EXPLORATION_MODES: ExplorationMode[] = [
     icon: Network,
     label: "Grammar Connections",
     description: "Explore how rules relate",
-    href: "/graph",
+    example: "e.g., Sentence Order",
+    href: "/concept/sentence-order",
     color: "var(--color-grammar)",
   },
   {
     icon: Compass,
     label: "Follow a Curated Route",
     description: "A connected, thoughtfully selected journey",
+    example: "A1 → C2 Path",
     href: "/explore/guided",
     color: "var(--color-skill)",
   },
@@ -236,7 +234,7 @@ export default function HomePage() {
           <div className="absolute top-40 right-1/4 w-80 h-80 bg-[var(--color-word)] rounded-full opacity-[0.03] blur-3xl" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-6 pt-24 pb-16 text-center animate-fade-in">
+        <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-12 text-center animate-fade-in">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
             <span className="gradient-text">Explore</span>{" "}
             <span className="text-[var(--color-text)]">the German</span>
@@ -244,7 +242,7 @@ export default function HomePage() {
             <span className="text-[var(--color-text)]">Language</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-8 leading-relaxed">
             See how German words, grammar, and real-life situations connect.
           </p>
 
@@ -274,9 +272,6 @@ export default function HomePage() {
       {/* ── Graph Preview ──────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-6 pb-14">
         <GraphPreview />
-        <p className="text-center text-xs text-[var(--color-text-dim)] mt-3">
-          The knowledge graph — hover nodes to explore, click to navigate
-        </p>
       </section>
 
       {/* ── Exploration Modes ──────────────────────────────────────────── */}
@@ -285,25 +280,28 @@ export default function HomePage() {
           Choose how to explore
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {EXPLORATION_MODES.map(({ icon: Icon, label, description, href, color }) => (
+          {EXPLORATION_MODES.map((mode) => (
             <Link
-              key={label}
-              href={href}
+              key={mode.label}
+              href={mode.href}
               className="card-base card-interactive p-5 flex flex-col gap-3 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
             >
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `color-mix(in srgb, ${color} 12%, transparent)` }}
+                style={{ backgroundColor: `color-mix(in srgb, ${mode.color} 12%, transparent)` }}
               >
-                <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
+                <mode.icon className="w-5 h-5" style={{ color: mode.color }} aria-hidden="true" />
               </div>
               <div>
-                <p className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 text-sm mb-1">
-                  {label}
-                </p>
-                <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
-                  {description}
-                </p>
+                <span className="block text-sm font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-200 mb-1">
+                  {mode.label}
+                </span>
+                <span className="block text-xs text-[var(--color-text-dim)] leading-relaxed">
+                  {mode.description}
+                </span>
+                <span className="block text-[10px] text-[var(--color-text-muted)] mt-2 italic">
+                  {mode.example}
+                </span>
               </div>
             </Link>
           ))}

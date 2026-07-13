@@ -39,6 +39,16 @@ export type ContentStatus = "complete" | "partial" | "stub";
 // Graph Primitives — nodes and edges
 // ---------------------------------------------------------------------------
 
+export interface DeepContentBlock {
+  title?: string;
+  explanation?: string;
+  examples?: {
+    de: string;
+    en: string;
+    highlight?: string[];
+  }[];
+}
+
 /** Base interface for all nodes in the knowledge graph */
 export interface GraphNodeBase {
   /** URL-friendly identifier, unique within type */
@@ -59,6 +69,8 @@ export interface GraphNodeBase {
   tags?: string[];
   /** Connections to other nodes */
   related?: RelatedNode[];
+  /** Deep content blocks for generic nodes (grammar, skill, mistake) */
+  content?: DeepContentBlock[];
 }
 
 /** A reference to another node */
@@ -215,6 +227,10 @@ export interface Word extends GraphNodeBase {
   sentenceStructure: SentenceStructure;
   /** Tips for using this word correctly */
   usageTips?: string[];
+  /** Common mistakes learners make */
+  commonMistakes?: Mistake[];
+  /** Side-by-side comparisons with other words */
+  comparisons?: Comparison[];
 }
 
 export interface Example {

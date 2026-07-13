@@ -1,32 +1,30 @@
-"use client";
+import { notFound, redirect } from "next/navigation";
+import { getNodePageModel } from "@/lib/resolver";
+import { SharedNodeRenderer } from "@/components/node/shared-node-renderer";
+import { getNodeHref } from "@/lib/routes";
+import type { Metadata } from "next";
 
-import { useEffect, use } from "react";
-import { notFound } from "next/navigation";
-import { useRecentExplorations } from "@/hooks/use-recent-explorations";
-import { UnifiedConceptView } from "@/components/graph/unified-concept-view";
-import conceptsData from "@/data/concepts.json";
-import type { Concept } from "@/types";
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const model = getNodePageModel(slug);
+  
+  if (!model) return {};
 
-function getConcept(slug: string): Concept | undefined {
-  return conceptsData.find((c) => c.slug === slug) as Concept | undefined;
+  return {
+    title: `${model.node.title} - Concept | GermanHub`,
+    description: model.node.summary,
+  };
 }
 
-export default function ConceptPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
-  const concept = getConcept(slug);
-  const { addExploration } = useRecentExplorations();
+export default async function ConceptPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const model = getNodePageModel(slug);
 
-  useEffect(() => {
-    if (concept) {
-      addExploration({ slug: concept.slug, type: "concept", title: concept.title });
-    }
-  }, [concept?.slug]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (!model) return notFound();
 
-  if (!concept) return notFound();
+  if (model.node.type !== "concept") {
+    redirect(getNodeHref(slug, model.node.type));
+  }
 
-  return (
-    <div className="w-full">
-      <UnifiedConceptView slug={slug} mode="page" />
-    </div>
-  );
+  return <SharedNodeRenderer model={model} />;
 }

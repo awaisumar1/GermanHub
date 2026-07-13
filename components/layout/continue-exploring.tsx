@@ -14,14 +14,7 @@ interface ContinueExploringProps {
   title?: string;
 }
 
-function getNodeHref(slug: string, type: NodeType): string {
-  switch (type) {
-    case "concept": return `/concept/${slug}`;
-    case "word": return `/word/${slug}`;
-    case "theme": return `/theme/${slug}`;
-    default: return `/node/${type}/${slug}`;
-  }
-}
+import { getNodeHref } from "@/lib/routes";
 
 function getNodeColor(type: NodeType): string {
   const colors: Record<NodeType, string> = {

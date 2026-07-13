@@ -12,7 +12,7 @@ export type PremiumNodeData = {
 };
 
 export function PremiumNode({ data }: { data: PremiumNodeData }) {
-  const { label, type, levels, isHovered, isDimmed } = data;
+  const { label, slug, type, levels, isHovered, isDimmed } = data;
 
   const typeColors: Record<string, string> = {
     concept: "var(--color-concept)",
@@ -24,43 +24,68 @@ export function PremiumNode({ data }: { data: PremiumNodeData }) {
     mistake: "var(--color-mistake)",
   };
 
-  const color = typeColors[type] || "var(--color-accent)";
+  const typeColor = typeColors[type] || "var(--color-accent)";
+  const highlightColor = "var(--color-accent)";
+
+  const isFocal = slug === "expressing-reasons";
+  // Secondary nodes are usually those expanded later or explicitly farther like modal-verbs
+  const isSecondary = slug === "modal-verbs" || !["weil", "denn", "deshalb", "deswegen", "daher", "sentence-order", "subordinate-clause", "conjunction", "travel", "expressing-reasons"].includes(slug);
+
+  // Sizing tiers
+  const paddingClass = isFocal ? "px-6 py-4" : isSecondary ? "px-3 py-1.5" : "px-4 py-2";
+  const textClass = isFocal ? "text-base font-bold" : isSecondary ? "text-xs font-medium" : "text-sm font-semibold";
+  const minWidth = isFocal ? "min-w-[160px]" : isSecondary ? "min-w-[100px]" : "min-w-[120px]";
+  const maxWidth = isFocal ? "max-w-[200px]" : isSecondary ? "max-w-[140px]" : "max-w-[160px]";
 
   return (
     <div
-      className={`relative rounded-xl border-2 transition-all duration-300 ease-in-out shadow-sm
-        ${isHovered ? "z-50 shadow-xl scale-105" : "z-10"}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.currentTarget.click();
+        }
+      }}
+      className={`relative rounded-xl border-2 transition-all duration-300 ease-in-out outline-none
+        ${isHovered || isFocal ? "z-50" : "z-10"}
+        ${isHovered ? "scale-105" : "scale-100"}
         ${isDimmed ? "opacity-20 scale-95" : "opacity-100"}
+        ${isFocal ? "shadow-md" : "shadow-sm"}
       `}
       style={{
-        backgroundColor: "var(--color-bg)",
-        borderColor: isHovered ? color : "var(--color-border)",
-        boxShadow: isHovered ? `0 8px 30px ${color}33` : undefined,
+        backgroundColor: isFocal ? "color-mix(in srgb, var(--color-surface) 95%, var(--color-accent) 5%)" : "var(--color-surface)",
+        borderColor: isHovered || isFocal ? highlightColor : "var(--color-border)",
+        boxShadow: isHovered ? `0 8px 30px ${highlightColor}33` : isFocal ? `0 4px 15px ${highlightColor}22` : undefined,
       }}
     >
       <Handle type="target" position={Position.Left} className="opacity-0" />
       
-      <div className="px-4 py-2 flex flex-col gap-1 items-center justify-center min-w-[120px]">
-        {/* Node Type Dot & Levels */}
+      <div className={`flex flex-col gap-1 items-center justify-center ${paddingClass} ${minWidth} ${maxWidth}`}>
+        {isFocal && (
+          <span className="text-[9px] uppercase tracking-wider font-bold text-[var(--color-accent)] mb-0.5">
+            Core Concept
+          </span>
+        )}
+        
+        {/* Node Type Dot & Inline Levels */}
         <div className="flex items-center gap-1.5 w-full justify-center">
           <div
             className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: typeColor }}
           />
-          {levels?.map((lvl) => (
+          {levels && levels.length > 0 && (
             <span
-              key={lvl}
-              className={`text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--color-surface)] text-[var(--color-text-muted)]`}
-              style={{ color: color }}
+              className="text-[9px] font-bold uppercase tracking-wider text-[var(--color-text-dim)]"
             >
-              {lvl}
+              {levels.join(", ")}
             </span>
-          ))}
+          )}
         </div>
 
         {/* Node Label */}
         <span
-          className="text-sm font-semibold text-[var(--color-text)] whitespace-nowrap"
+          className={`${textClass} text-[var(--color-text)] text-center break-words leading-tight`}
           style={{ fontFamily: type === "word" ? "monospace" : "inherit" }}
         >
           {label}

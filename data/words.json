@@ -6,15 +6,47 @@
     "type": "word",
     "status": "complete",
     "summary": "The most common way to say 'because' in German. Changes word order — the verb moves to the end.",
-    "levels": ["A2"],
-    "tags": ["conjunction", "subordinating", "reason", "because", "word-order"],
+    "levels": [
+      "A2"
+    ],
+    "tags": [
+      "conjunction",
+      "subordinating",
+      "reason",
+      "because",
+      "word-order"
+    ],
     "related": [
-      { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
-      { "slug": "denn", "type": "word", "relation": "compare-with" },
-      { "slug": "subordinate-clause", "type": "grammar", "relation": "requires" },
-      { "slug": "sentence-order", "type": "grammar", "relation": "affects" },
-      { "slug": "travel", "type": "theme", "relation": "used-in" },
-      { "slug": "daily-life", "type": "theme", "relation": "used-in" }
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "belongs-to"
+      },
+      {
+        "slug": "denn",
+        "type": "word",
+        "relation": "compare-with"
+      },
+      {
+        "slug": "subordinate-clause",
+        "type": "grammar",
+        "relation": "requires"
+      },
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "affects"
+      },
+      {
+        "slug": "travel",
+        "type": "theme",
+        "relation": "used-in"
+      },
+      {
+        "slug": "daily-life",
+        "type": "theme",
+        "relation": "used-in"
+      }
     ],
     "word": "weil",
     "meaning": "because",
@@ -25,37 +57,72 @@
       {
         "de": "Ich lerne Deutsch, weil ich in Berlin arbeiten möchte.",
         "en": "I'm learning German because I want to work in Berlin.",
-        "highlight": ["weil"],
+        "highlight": [
+          "weil"
+        ],
         "context": "neutral"
       },
       {
         "de": "Sie bleibt zu Hause, weil sie krank ist.",
         "en": "She stays at home because she is sick.",
-        "highlight": ["weil", "ist"],
+        "highlight": [
+          "weil",
+          "ist"
+        ],
         "context": "informal"
       },
       {
         "de": "Wir nehmen ein Taxi, weil es regnet.",
         "en": "We're taking a taxi because it's raining.",
-        "highlight": ["weil", "regnet"],
+        "highlight": [
+          "weil",
+          "regnet"
+        ],
         "context": "spoken"
       },
       {
         "de": "Er hat den Job bekommen, weil er sehr gut Deutsch spricht.",
         "en": "He got the job because he speaks German very well.",
-        "highlight": ["weil", "spricht"],
+        "highlight": [
+          "weil",
+          "spricht"
+        ],
         "context": "neutral"
       }
     ],
     "sentenceStructure": {
       "pattern": "Main clause + , + weil + Subject + ... + Verb",
       "parts": [
-        { "label": "Main clause", "content": "Ich lerne Deutsch", "highlight": false },
-        { "label": "Comma", "content": ",", "highlight": false },
-        { "label": "weil", "content": "weil", "highlight": true },
-        { "label": "Subject", "content": "ich", "highlight": false },
-        { "label": "Middle field", "content": "in Berlin arbeiten", "highlight": false },
-        { "label": "Verb (end!)", "content": "möchte", "highlight": true }
+        {
+          "label": "Main clause",
+          "content": "Ich lerne Deutsch",
+          "highlight": false
+        },
+        {
+          "label": "Comma",
+          "content": ",",
+          "highlight": false
+        },
+        {
+          "label": "weil",
+          "content": "weil",
+          "highlight": true
+        },
+        {
+          "label": "Subject",
+          "content": "ich",
+          "highlight": false
+        },
+        {
+          "label": "Middle field",
+          "content": "in Berlin arbeiten",
+          "highlight": false
+        },
+        {
+          "label": "Verb (end!)",
+          "content": "möchte",
+          "highlight": true
+        }
       ],
       "notes": "The conjugated verb always goes to the END of the weil-clause. This is the most important rule. In spoken German, some speakers use normal word order after 'weil', but this is considered informal."
     },
@@ -63,6 +130,39 @@
       "Always place the conjugated verb at the end of the weil-clause",
       "In spoken German, you may hear 'weil' with normal word order — this is informal and not standard",
       "Can start a sentence: 'Weil es regnet, nehmen wir ein Taxi' (note the inversion in the main clause)"
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Ich bleibe zu Hause, weil ich bin krank.",
+        "correct": "Ich bleibe zu Hause, weil ich krank bin.",
+        "explanation": "After 'weil', the conjugated verb must go to the very end of the clause.",
+        "level": "A2"
+      }
+    ],
+    "comparisons": [
+      {
+        "items": [
+          "weil",
+          "denn"
+        ],
+        "dimension": "Conjunction Word Order",
+        "rows": [
+          {
+            "attribute": "Word Order",
+            "values": [
+              "Verb at the end",
+              "Normal word order (Position 2)"
+            ]
+          },
+          {
+            "attribute": "Usage",
+            "values": [
+              "Can start a sentence",
+              "Cannot start a sentence"
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -72,14 +172,42 @@
     "type": "word",
     "status": "complete",
     "summary": "An alternative way to say 'because' that keeps normal word order. Slightly more formal than 'weil'.",
-    "levels": ["A2"],
-    "tags": ["conjunction", "coordinating", "reason", "because", "formal"],
+    "levels": [
+      "A2"
+    ],
+    "tags": [
+      "conjunction",
+      "coordinating",
+      "reason",
+      "because",
+      "formal"
+    ],
     "related": [
-      { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
-      { "slug": "weil", "type": "word", "relation": "compare-with" },
-      { "slug": "conjunction", "type": "grammar", "relation": "is-a" },
-      { "slug": "formal-language", "type": "skill", "relation": "relevant-to" },
-      { "slug": "writing", "type": "skill", "relation": "used-in" }
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "belongs-to"
+      },
+      {
+        "slug": "weil",
+        "type": "word",
+        "relation": "compare-with"
+      },
+      {
+        "slug": "conjunction",
+        "type": "grammar",
+        "relation": "is-a"
+      },
+      {
+        "slug": "formal-language",
+        "type": "skill",
+        "relation": "relevant-to"
+      },
+      {
+        "slug": "writing",
+        "type": "skill",
+        "relation": "used-in"
+      }
     ],
     "word": "denn",
     "meaning": "because / for",
@@ -90,37 +218,69 @@
       {
         "de": "Ich bleibe zu Hause, denn ich bin krank.",
         "en": "I'm staying home, for I am sick.",
-        "highlight": ["denn"],
+        "highlight": [
+          "denn"
+        ],
         "context": "neutral"
       },
       {
         "de": "Wir müssen uns beeilen, denn der Zug fährt bald ab.",
         "en": "We have to hurry, for the train is leaving soon.",
-        "highlight": ["denn"],
+        "highlight": [
+          "denn"
+        ],
         "context": "spoken"
       },
       {
         "de": "Er liest viel, denn er möchte Schriftsteller werden.",
         "en": "He reads a lot, for he wants to become a writer.",
-        "highlight": ["denn"],
+        "highlight": [
+          "denn"
+        ],
         "context": "written"
       },
       {
         "de": "Sie nimmt einen Regenschirm mit, denn es soll regnen.",
         "en": "She's taking an umbrella along, for it's supposed to rain.",
-        "highlight": ["denn"],
+        "highlight": [
+          "denn"
+        ],
         "context": "neutral"
       }
     ],
     "sentenceStructure": {
       "pattern": "Main clause + , + denn + Subject + Verb + ...",
       "parts": [
-        { "label": "Main clause", "content": "Ich bleibe zu Hause", "highlight": false },
-        { "label": "Comma", "content": ",", "highlight": false },
-        { "label": "denn", "content": "denn", "highlight": true },
-        { "label": "Subject", "content": "ich", "highlight": false },
-        { "label": "Verb (normal!)", "content": "bin", "highlight": true },
-        { "label": "Rest", "content": "krank", "highlight": false }
+        {
+          "label": "Main clause",
+          "content": "Ich bleibe zu Hause",
+          "highlight": false
+        },
+        {
+          "label": "Comma",
+          "content": ",",
+          "highlight": false
+        },
+        {
+          "label": "denn",
+          "content": "denn",
+          "highlight": true
+        },
+        {
+          "label": "Subject",
+          "content": "ich",
+          "highlight": false
+        },
+        {
+          "label": "Verb (normal!)",
+          "content": "bin",
+          "highlight": true
+        },
+        {
+          "label": "Rest",
+          "content": "krank",
+          "highlight": false
+        }
       ],
       "notes": "Unlike 'weil', 'denn' does NOT change the word order. The verb stays in its normal position (position 2). 'Denn' cannot start a sentence — it always connects two main clauses."
     },
@@ -129,6 +289,39 @@
       "Word order stays normal after 'denn' (subject + verb)",
       "More common in written German and formal speech",
       "Cannot be used as a one-word answer to 'Warum?' — use 'weil' instead"
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Ich lerne Deutsch, denn ich nach Berlin ziehe.",
+        "correct": "Ich lerne Deutsch, denn ich ziehe nach Berlin.",
+        "explanation": "'denn' is a coordinating conjunction, so the word order stays completely normal (Subject + Verb).",
+        "level": "A2"
+      }
+    ],
+    "comparisons": [
+      {
+        "items": [
+          "denn",
+          "weil"
+        ],
+        "dimension": "Conjunction Word Order",
+        "rows": [
+          {
+            "attribute": "Word Order",
+            "values": [
+              "Normal word order (Position 2)",
+              "Verb at the end"
+            ]
+          },
+          {
+            "attribute": "Style",
+            "values": [
+              "Slightly more formal/written",
+              "Very common in speech"
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -138,15 +331,47 @@
     "type": "word",
     "status": "complete",
     "summary": "Means 'therefore' or 'that's why'. Introduces the result or consequence. Causes verb-second inversion.",
-    "levels": ["B1"],
-    "tags": ["adverb", "connecting", "result", "therefore", "inversion"],
+    "levels": [
+      "B1"
+    ],
+    "tags": [
+      "adverb",
+      "connecting",
+      "result",
+      "therefore",
+      "inversion"
+    ],
     "related": [
-      { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
-      { "slug": "deswegen", "type": "word", "relation": "synonym" },
-      { "slug": "daher", "type": "word", "relation": "synonym" },
-      { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
-      { "slug": "speaking", "type": "skill", "relation": "used-in" },
-      { "slug": "writing", "type": "skill", "relation": "used-in" }
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "belongs-to"
+      },
+      {
+        "slug": "deswegen",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "daher",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "requires"
+      },
+      {
+        "slug": "speaking",
+        "type": "skill",
+        "relation": "used-in"
+      },
+      {
+        "slug": "writing",
+        "type": "skill",
+        "relation": "used-in"
+      }
     ],
     "word": "deshalb",
     "meaning": "therefore / that's why",
@@ -157,37 +382,69 @@
       {
         "de": "Es regnet, deshalb bleibe ich zu Hause.",
         "en": "It's raining, therefore I'm staying home.",
-        "highlight": ["deshalb"],
+        "highlight": [
+          "deshalb"
+        ],
         "context": "neutral"
       },
       {
         "de": "Ich habe morgen eine Prüfung, deshalb muss ich heute lernen.",
         "en": "I have an exam tomorrow, that's why I have to study today.",
-        "highlight": ["deshalb"],
+        "highlight": [
+          "deshalb"
+        ],
         "context": "spoken"
       },
       {
         "de": "Der Zug hatte Verspätung, deshalb bin ich zu spät gekommen.",
         "en": "The train was delayed, that's why I arrived late.",
-        "highlight": ["deshalb"],
+        "highlight": [
+          "deshalb"
+        ],
         "context": "neutral"
       },
       {
         "de": "Sie spricht sehr gut Deutsch, deshalb hat sie den Job bekommen.",
         "en": "She speaks German very well, that's why she got the job.",
-        "highlight": ["deshalb"],
+        "highlight": [
+          "deshalb"
+        ],
         "context": "neutral"
       }
     ],
     "sentenceStructure": {
       "pattern": "Reason clause + , + deshalb + Verb + Subject + ...",
       "parts": [
-        { "label": "Reason clause", "content": "Es regnet", "highlight": false },
-        { "label": "Comma", "content": ",", "highlight": false },
-        { "label": "deshalb", "content": "deshalb", "highlight": true },
-        { "label": "Verb (position 2!)", "content": "bleibe", "highlight": true },
-        { "label": "Subject", "content": "ich", "highlight": false },
-        { "label": "Rest", "content": "zu Hause", "highlight": false }
+        {
+          "label": "Reason clause",
+          "content": "Es regnet",
+          "highlight": false
+        },
+        {
+          "label": "Comma",
+          "content": ",",
+          "highlight": false
+        },
+        {
+          "label": "deshalb",
+          "content": "deshalb",
+          "highlight": true
+        },
+        {
+          "label": "Verb (position 2!)",
+          "content": "bleibe",
+          "highlight": true
+        },
+        {
+          "label": "Subject",
+          "content": "ich",
+          "highlight": false
+        },
+        {
+          "label": "Rest",
+          "content": "zu Hause",
+          "highlight": false
+        }
       ],
       "notes": "'Deshalb' occupies position 1, so the verb must come in position 2 (inversion). The subject moves after the verb. This is different from English where 'therefore' doesn't change word order."
     },
@@ -196,6 +453,46 @@
       "The verb comes immediately after 'deshalb' (inversion)",
       "Can also be placed in the middle: 'Ich bleibe deshalb zu Hause'",
       "Interchangeable with 'deswegen' in most contexts"
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Es regnet, deshalb ich bleibe zu Hause.",
+        "correct": "Es regnet, deshalb bleibe ich zu Hause.",
+        "explanation": "'deshalb' takes Position 1 in its clause, pushing the verb to Position 2 and the subject to Position 3 (inversion).",
+        "level": "B1"
+      }
+    ],
+    "comparisons": [
+      {
+        "items": [
+          "deshalb",
+          "deswegen"
+        ],
+        "dimension": "Nuance Comparison",
+        "rows": [
+          {
+            "attribute": "Meaning",
+            "values": [
+              "Therefore, that's why",
+              "Therefore, that's why"
+            ]
+          },
+          {
+            "attribute": "Register",
+            "values": [
+              "Neutral, works anywhere",
+              "Slightly more common in casual spoken German"
+            ]
+          },
+          {
+            "attribute": "Grammar",
+            "values": [
+              "Identical (Position 1, Inversion)",
+              "Identical (Position 1, Inversion)"
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -205,15 +502,48 @@
     "type": "word",
     "status": "complete",
     "summary": "Synonym for 'deshalb' — means 'therefore' or 'that's why'. Slightly more casual. Same grammar rules.",
-    "levels": ["B1"],
-    "tags": ["adverb", "connecting", "result", "therefore", "inversion", "informal"],
+    "levels": [
+      "B1"
+    ],
+    "tags": [
+      "adverb",
+      "connecting",
+      "result",
+      "therefore",
+      "inversion",
+      "informal"
+    ],
     "related": [
-      { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
-      { "slug": "deshalb", "type": "word", "relation": "synonym" },
-      { "slug": "daher", "type": "word", "relation": "synonym" },
-      { "slug": "sentence-order", "type": "grammar", "relation": "requires" },
-      { "slug": "daily-life", "type": "theme", "relation": "used-in" },
-      { "slug": "speaking", "type": "skill", "relation": "used-in" }
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "belongs-to"
+      },
+      {
+        "slug": "deshalb",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "daher",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "requires"
+      },
+      {
+        "slug": "daily-life",
+        "type": "theme",
+        "relation": "used-in"
+      },
+      {
+        "slug": "speaking",
+        "type": "skill",
+        "relation": "used-in"
+      }
     ],
     "word": "deswegen",
     "meaning": "therefore / that's why",
@@ -224,37 +554,69 @@
       {
         "de": "Ich war müde, deswegen bin ich früh ins Bett gegangen.",
         "en": "I was tired, that's why I went to bed early.",
-        "highlight": ["deswegen"],
+        "highlight": [
+          "deswegen"
+        ],
         "context": "informal"
       },
       {
         "de": "Das Restaurant war voll, deswegen haben wir Pizza bestellt.",
         "en": "The restaurant was full, that's why we ordered pizza.",
-        "highlight": ["deswegen"],
+        "highlight": [
+          "deswegen"
+        ],
         "context": "spoken"
       },
       {
         "de": "Er hat kein Auto, deswegen fährt er mit dem Bus.",
         "en": "He doesn't have a car, that's why he takes the bus.",
-        "highlight": ["deswegen"],
+        "highlight": [
+          "deswegen"
+        ],
         "context": "neutral"
       },
       {
         "de": "Die Miete ist zu teuer, deswegen suchen wir eine neue Wohnung.",
         "en": "The rent is too expensive, that's why we're looking for a new apartment.",
-        "highlight": ["deswegen"],
+        "highlight": [
+          "deswegen"
+        ],
         "context": "spoken"
       }
     ],
     "sentenceStructure": {
       "pattern": "Reason clause + , + deswegen + Verb + Subject + ...",
       "parts": [
-        { "label": "Reason clause", "content": "Ich war müde", "highlight": false },
-        { "label": "Comma", "content": ",", "highlight": false },
-        { "label": "deswegen", "content": "deswegen", "highlight": true },
-        { "label": "Verb (position 2!)", "content": "bin", "highlight": true },
-        { "label": "Subject", "content": "ich", "highlight": false },
-        { "label": "Rest", "content": "früh ins Bett gegangen", "highlight": false }
+        {
+          "label": "Reason clause",
+          "content": "Ich war müde",
+          "highlight": false
+        },
+        {
+          "label": "Comma",
+          "content": ",",
+          "highlight": false
+        },
+        {
+          "label": "deswegen",
+          "content": "deswegen",
+          "highlight": true
+        },
+        {
+          "label": "Verb (position 2!)",
+          "content": "bin",
+          "highlight": true
+        },
+        {
+          "label": "Subject",
+          "content": "ich",
+          "highlight": false
+        },
+        {
+          "label": "Rest",
+          "content": "früh ins Bett gegangen",
+          "highlight": false
+        }
       ],
       "notes": "Grammatically identical to 'deshalb'. 'Deswegen' is slightly more common in everyday spoken German, while 'deshalb' is neutral across registers."
     },
@@ -263,6 +625,46 @@
       "Slightly more common in casual spoken German",
       "Same inversion rule: verb comes right after 'deswegen'",
       "If in doubt, 'deshalb' and 'deswegen' are both always correct"
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Ich war krank, deswegen ich bin nicht gekommen.",
+        "correct": "Ich war krank, deswegen bin ich nicht gekommen.",
+        "explanation": "Like all connecting adverbs, 'deswegen' causes inversion. The verb must immediately follow it.",
+        "level": "B1"
+      }
+    ],
+    "comparisons": [
+      {
+        "items": [
+          "deswegen",
+          "deshalb"
+        ],
+        "dimension": "Usage Nuance",
+        "rows": [
+          {
+            "attribute": "Meaning",
+            "values": [
+              "Therefore",
+              "Therefore"
+            ]
+          },
+          {
+            "attribute": "Usage Context",
+            "values": [
+              "More frequent in everyday speech",
+              "Standard, neutral register"
+            ]
+          },
+          {
+            "attribute": "Grammar Rule",
+            "values": [
+              "Exactly the same",
+              "Exactly the same"
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -271,16 +673,49 @@
     "titleDe": "daher",
     "type": "word",
     "status": "complete",
-    "summary": "A more formal way to say 'therefore' or 'hence'. Common in written German and academic contexts.",
-    "levels": ["B1"],
-    "tags": ["adverb", "connecting", "result", "therefore", "formal", "written"],
+    "summary": "A consequence connector ('therefore' or 'hence'). Tends to be more common in formal or written German, though it can still appear in speech.",
+    "levels": [
+      "B1"
+    ],
+    "tags": [
+      "adverb",
+      "connecting",
+      "result",
+      "therefore",
+      "formal",
+      "written"
+    ],
     "related": [
-      { "slug": "expressing-reasons", "type": "concept", "relation": "belongs-to" },
-      { "slug": "deshalb", "type": "word", "relation": "synonym" },
-      { "slug": "deswegen", "type": "word", "relation": "synonym" },
-      { "slug": "formal-language", "type": "skill", "relation": "relevant-to" },
-      { "slug": "writing", "type": "skill", "relation": "used-in" },
-      { "slug": "sentence-order", "type": "grammar", "relation": "requires" }
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "belongs-to"
+      },
+      {
+        "slug": "deshalb",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "deswegen",
+        "type": "word",
+        "relation": "synonym"
+      },
+      {
+        "slug": "formal-language",
+        "type": "skill",
+        "relation": "relevant-to"
+      },
+      {
+        "slug": "writing",
+        "type": "skill",
+        "relation": "used-in"
+      },
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "requires"
+      }
     ],
     "word": "daher",
     "meaning": "therefore / hence",
@@ -291,45 +726,117 @@
       {
         "de": "Die Studie zeigt klare Ergebnisse, daher empfehlen wir eine Änderung.",
         "en": "The study shows clear results, hence we recommend a change.",
-        "highlight": ["daher"],
+        "highlight": [
+          "daher"
+        ],
         "context": "formal"
       },
       {
         "de": "Er hat viel Erfahrung, daher ist er der beste Kandidat.",
         "en": "He has a lot of experience, therefore he is the best candidate.",
-        "highlight": ["daher"],
+        "highlight": [
+          "daher"
+        ],
         "context": "written"
       },
       {
         "de": "Die Straßen sind glatt, daher sollten Sie vorsichtig fahren.",
         "en": "The roads are slippery, therefore you should drive carefully.",
-        "highlight": ["daher"],
+        "highlight": [
+          "daher"
+        ],
         "context": "formal"
       },
       {
         "de": "Das Budget ist begrenzt, daher müssen wir Prioritäten setzen.",
         "en": "The budget is limited, hence we need to set priorities.",
-        "highlight": ["daher"],
+        "highlight": [
+          "daher"
+        ],
         "context": "written"
       }
     ],
     "sentenceStructure": {
       "pattern": "Reason clause + , + daher + Verb + Subject + ...",
       "parts": [
-        { "label": "Reason clause", "content": "Er hat viel Erfahrung", "highlight": false },
-        { "label": "Comma", "content": ",", "highlight": false },
-        { "label": "daher", "content": "daher", "highlight": true },
-        { "label": "Verb (position 2!)", "content": "ist", "highlight": true },
-        { "label": "Subject", "content": "er", "highlight": false },
-        { "label": "Rest", "content": "der beste Kandidat", "highlight": false }
+        {
+          "label": "Reason clause",
+          "content": "Er hat viel Erfahrung",
+          "highlight": false
+        },
+        {
+          "label": "Comma",
+          "content": ",",
+          "highlight": false
+        },
+        {
+          "label": "daher",
+          "content": "daher",
+          "highlight": true
+        },
+        {
+          "label": "Verb (position 2!)",
+          "content": "ist",
+          "highlight": true
+        },
+        {
+          "label": "Subject",
+          "content": "er",
+          "highlight": false
+        },
+        {
+          "label": "Rest",
+          "content": "der beste Kandidat",
+          "highlight": false
+        }
       ],
-      "notes": "Same inversion rule as 'deshalb' and 'deswegen'. Preferred in academic writing, news articles, and professional communication. Note: 'daher' can also mean 'from there' in a spatial sense — context makes the meaning clear."
+      "notes": "Same inversion rule as 'deshalb' and 'deswegen'. It tends to appear more frequently in academic writing, news articles, and professional communication, but this is a tendency, not a strict rule. Note: 'daher' can also mean 'from there' in a spatial sense."
     },
     "usageTips": [
-      "Preferred in formal writing, academic papers, and professional emails",
+      "Often preferred in formal writing, academic papers, and professional emails",
       "Same grammar as 'deshalb' and 'deswegen' — position 1, verb in position 2",
       "Can also mean 'from there' (spatial) — 'Ich komme daher' = 'I come from there'",
-      "Using 'daher' in casual conversation can sound overly formal"
+      "While formal, it's not strictly restricted to writing; you will still hear it in speech"
+    ],
+    "commonMistakes": [
+      {
+        "incorrect": "Das Budget ist klein, daher wir müssen sparen.",
+        "correct": "Das Budget ist klein, daher müssen wir sparen.",
+        "explanation": "'daher' requires the verb to come directly after it in Position 2.",
+        "level": "B1"
+      }
+    ],
+    "comparisons": [
+      {
+        "items": [
+          "daher",
+          "deshalb"
+        ],
+        "dimension": "Formality",
+        "rows": [
+          {
+            "attribute": "Register",
+            "values": [
+              "Formal, academic, written",
+              "Neutral, general purpose"
+            ]
+          },
+          {
+            "attribute": "Meaning",
+            "values": [
+              "Hence, therefore",
+              "Therefore, that's why"
+            ]
+          },
+          {
+            "attribute": "Word Order",
+            "values": [
+              "Inversion",
+              "Inversion"
+            ]
+          }
+        ]
+      }
     ]
   }
 ]

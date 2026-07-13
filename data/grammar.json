@@ -1,0 +1,329 @@
+[
+  {
+    "slug": "sentence-order",
+    "title": "Sentence Order",
+    "titleDe": "Satzstellung",
+    "type": "grammar",
+    "status": "complete",
+    "summary": "German sentence order depends heavily on the type of clause and the connecting word used. The verb can be in position 2, at the end, or inverted with the subject.",
+    "levels": [
+      "A2",
+      "B1",
+      "B2"
+    ],
+    "tags": [
+      "grammar",
+      "word-order",
+      "verb-position",
+      "inversion"
+    ],
+    "related": [
+      {
+        "slug": "subordinate-clause",
+        "type": "grammar",
+        "relation": "related"
+      },
+      {
+        "slug": "conjunction",
+        "type": "grammar",
+        "relation": "related"
+      },
+      {
+        "slug": "expressing-reasons",
+        "type": "concept",
+        "relation": "used-by"
+      },
+      {
+        "slug": "weil",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "denn",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "deshalb",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "deswegen",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "daher",
+        "type": "word",
+        "relation": "example-of"
+      }
+    ],
+    "content": [
+      {
+        "title": "1. Normal Main Clause (Verb-Second)",
+        "explanation": "In a standard main clause, the conjugated verb is ALWAYS the second element. Coordinating conjunctions like 'denn' take 'Position 0', meaning they do not count towards the word order, and the normal Subject + Verb order remains.",
+        "examples": [
+          {
+            "de": "Ich bleibe zu Hause, denn ich bin krank.",
+            "en": "I am staying at home, because I am sick.",
+            "highlight": [
+              "denn",
+              "ich",
+              "bin"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "2. Subordinate Clause (Verb-Final)",
+        "explanation": "In a subordinate clause, introduced by subordinating conjunctions like 'weil', the conjugated verb is pushed to the very end of the sentence.",
+        "examples": [
+          {
+            "de": "Ich bleibe zu Hause, weil ich krank bin.",
+            "en": "I am staying at home, because I am sick.",
+            "highlight": [
+              "weil",
+              "ich",
+              "krank",
+              "bin"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "3. Connector-First Inversion",
+        "explanation": "When an adverb or connector (like deshalb, deswegen, daher) occupies the first position of a clause, the verb must come immediately next (Position 2), followed by the subject (Position 3). This is called inversion.",
+        "examples": [
+          {
+            "de": "Ich bin krank, deshalb bleibe ich zu Hause.",
+            "en": "I am sick, therefore I am staying at home.",
+            "highlight": [
+              "deshalb",
+              "bleibe",
+              "ich"
+            ]
+          },
+          {
+            "de": "Ich bin krank, deswegen bleibe ich zu Hause.",
+            "en": "I am sick, therefore I am staying at home.",
+            "highlight": [
+              "deswegen",
+              "bleibe",
+              "ich"
+            ]
+          },
+          {
+            "de": "Ich bin krank, daher bleibe ich zu Hause.",
+            "en": "I am sick, hence I am staying at home.",
+            "highlight": [
+              "daher",
+              "bleibe",
+              "ich"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "subordinate-clause",
+    "title": "Subordinate Clauses",
+    "titleDe": "Nebensätze",
+    "type": "grammar",
+    "status": "complete",
+    "summary": "Subordinate clauses normally cannot stand alone as complete sentences. The hallmark of a German subordinate clause is that the conjugated verb moves to the end.",
+    "levels": [
+      "A2",
+      "B1"
+    ],
+    "tags": [
+      "grammar",
+      "clause",
+      "subordinate",
+      "verb-position"
+    ],
+    "related": [
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "related"
+      },
+      {
+        "slug": "weil",
+        "type": "word",
+        "relation": "example-of"
+      }
+    ],
+    "content": [
+      {
+        "title": "What is a Subordinate Clause?",
+        "explanation": "A subordinate clause provides extra information and depends on a main clause to make sense. It is ALWAYS separated from the main clause by a comma. When introduced by a subordinating conjunction like 'weil', the conjugated verb must be placed at the very end of the clause.",
+        "examples": [
+          {
+            "de": "Er ist glücklich, weil er einen neuen Job hat.",
+            "en": "He is happy because he has a new job.",
+            "highlight": [
+              ",",
+              "weil",
+              "hat"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Clause Order (Main before Subordinate)",
+        "explanation": "If the main clause comes first, the word order is normal (Subject + Verb), followed by a comma, the conjunction, and the verb at the end.",
+        "examples": [
+          {
+            "de": "Wir gehen nicht spazieren, weil es regnet.",
+            "en": "We are not going for a walk because it is raining.",
+            "highlight": [
+              "Wir gehen",
+              "weil",
+              "regnet"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Clause Order (Subordinate before Main)",
+        "explanation": "If you start the sentence with the subordinate clause, the entire subordinate clause acts as 'Position 1' of the overall sentence. Therefore, the main clause immediately starts with its verb (Position 2), creating a 'verb comma verb' pattern.",
+        "examples": [
+          {
+            "de": "Weil es regnet, gehen wir nicht spazieren.",
+            "en": "Because it is raining, we are not going for a walk.",
+            "highlight": [
+              "regnet",
+              ",",
+              "gehen"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Common Mistakes",
+        "explanation": "A frequent mistake is keeping the normal word order inside the subordinate clause. Remember: the conjugated verb must go last.",
+        "examples": [
+          {
+            "de": "FALSCH: Ich esse, weil ich bin hungrig.",
+            "en": "INCORRECT",
+            "highlight": [
+              "weil",
+              "ich",
+              "bin",
+              "hungrig"
+            ]
+          },
+          {
+            "de": "RICHTIG: Ich esse, weil ich hungrig bin.",
+            "en": "CORRECT: I am eating because I am hungry.",
+            "highlight": [
+              "weil",
+              "ich",
+              "hungrig",
+              "bin"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "conjunction",
+    "title": "Conjunctions vs. Connectors",
+    "titleDe": "Konjunktionen und Konnektoren",
+    "type": "grammar",
+    "status": "complete",
+    "summary": "Not all connecting words are the same. German distinguishes between subordinating conjunctions, coordinating conjunctions, and connecting adverbs.",
+    "levels": [
+      "A2",
+      "B1"
+    ],
+    "tags": [
+      "grammar",
+      "conjunction",
+      "coordinating",
+      "subordinating",
+      "adverb"
+    ],
+    "related": [
+      {
+        "slug": "sentence-order",
+        "type": "grammar",
+        "relation": "related"
+      },
+      {
+        "slug": "weil",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "denn",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "deshalb",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "deswegen",
+        "type": "word",
+        "relation": "example-of"
+      },
+      {
+        "slug": "daher",
+        "type": "word",
+        "relation": "example-of"
+      }
+    ],
+    "content": [
+      {
+        "title": "1. Subordinating Conjunctions",
+        "explanation": "These introduce a subordinate clause. They push the conjugated verb to the end of the sentence. Example: 'weil' (because).",
+        "examples": [
+          {
+            "de": "Ich trinke Kaffee, weil ich müde bin.",
+            "en": "I drink coffee because I am tired.",
+            "highlight": [
+              "weil",
+              "bin"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "2. Coordinating Conjunctions",
+        "explanation": "These connect two main clauses and sit in 'Position 0'. They do NOT change the word order (Subject + Verb remains). Example: 'denn' (because / for).",
+        "examples": [
+          {
+            "de": "Ich trinke Kaffee, denn ich bin müde.",
+            "en": "I drink coffee, for I am tired.",
+            "highlight": [
+              "denn",
+              "ich",
+              "bin"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "3. Connecting Adverbs (Connectors)",
+        "explanation": "Words like 'deshalb', 'deswegen', and 'daher' are technically adverbs, not conjunctions. They take up 'Position 1' in a new clause, pushing the verb into Position 2 (before the subject).",
+        "examples": [
+          {
+            "de": "Ich bin müde, deshalb trinke ich Kaffee.",
+            "en": "I am tired, therefore I drink coffee.",
+            "highlight": [
+              "deshalb",
+              "trinke",
+              "ich"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

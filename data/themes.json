@@ -5,7 +5,7 @@
     "titleDe": "Reisen",
     "type": "theme",
     "status": "complete",
-    "summary": "How to express reasons and consequences in travel situations — from booking explanations to flight delays.",
+    "summary": "How to connect reasons, consequences, and word order in realistic travel situations, from delays to formal rebooking requests.",
     "levels": ["A2", "B1"],
     "tags": ["travel", "tourism", "airport", "hotel", "transportation"],
     "related": [
@@ -13,43 +13,73 @@
       { "slug": "weil", "type": "word", "relation": "features" },
       { "slug": "denn", "type": "word", "relation": "features" },
       { "slug": "deshalb", "type": "word", "relation": "features" },
+      { "slug": "deswegen", "type": "word", "relation": "features" },
+      { "slug": "daher", "type": "word", "relation": "features" },
+      { "slug": "sentence-order", "type": "grammar", "relation": "uses" },
+      { "slug": "subordinate-clause", "type": "grammar", "relation": "uses" },
+      { "slug": "conjunction", "type": "grammar", "relation": "uses" },
+      { "slug": "formal-language", "type": "skill", "relation": "applies" },
       { "slug": "daily-life", "type": "theme", "relation": "related" },
       { "slug": "speaking", "type": "skill", "relation": "develops" }
     ],
-    "description": "Travel is one of the most practical contexts for expressing reasons in German. Whether you're explaining why you chose a destination, dealing with delays, or asking for help — 'weil', 'denn', 'deshalb' and their cousins show up constantly.\n\nThese conversations show how native speakers naturally use reason words in travel situations.",
+    "description": "Travel conversations often move between cause and consequence: a train is delayed, a connection is missed, a booking changes, or a formal message explains the next step. This theme connects those situations to the grammar behind them: weil sends the verb to the end, denn keeps normal main-clause order, and deshalb, deswegen, and daher start a result clause with verb-subject inversion.\n\nThe goal is not to memorize travel phrases, but to see how connected German knowledge works in context.",
     "conversations": [
       {
-        "title": "At the Airport — Flight Delay",
-        "context": "A traveler is asking about their delayed flight at the information desk.",
+        "title": "Explaining a Delay at the Station",
+        "context": "A traveler explains a late arrival and connects the reason to the next action.",
         "lines": [
-          { "speaker": "Reisender", "de": "Entschuldigung, warum hat der Flug Verspätung?", "en": "Excuse me, why is the flight delayed?" },
-          { "speaker": "Mitarbeiterin", "de": "Der Flug hat Verspätung, weil es in München starken Nebel gibt.", "en": "The flight is delayed because there is heavy fog in Munich.", "highlight": ["weil"] },
-          { "speaker": "Reisender", "de": "Oh nein. Und wann fliegen wir dann?", "en": "Oh no. And when do we fly then?" },
-          { "speaker": "Mitarbeiterin", "de": "Wir wissen es noch nicht, denn die Situation ändert sich ständig.", "en": "We don't know yet, for the situation keeps changing.", "highlight": ["denn"] },
-          { "speaker": "Reisender", "de": "Ich habe einen Anschlusszug. Deshalb ist es wichtig, dass ich pünktlich ankomme.", "en": "I have a connecting train. That's why it's important that I arrive on time.", "highlight": ["Deshalb"] },
-          { "speaker": "Mitarbeiterin", "de": "Ich verstehe. Daher empfehle ich Ihnen, am Schalter eine Umbuchung zu prüfen.", "en": "I understand. Therefore I recommend you check for rebooking at the counter.", "highlight": ["Daher"] }
+          { "speaker": "Reisender", "de": "Entschuldigung, ich komme zu spät, weil der Zug in Köln lange gestanden hat.", "en": "Excuse me, I am arriving late because the train stood in Cologne for a long time.", "highlight": ["weil", "hat"] },
+          { "speaker": "Muster", "de": "weil + der Zug + in Köln lange gestanden hat", "en": "weil introduces the reason; the conjugated verb hat moves to the end of the subordinate clause.", "highlight": ["weil", "hat"] },
+          { "speaker": "Mitarbeiterin", "de": "Das sehe ich im System, denn der Zug hatte eine technische Störung.", "en": "I can see that in the system, because the train had a technical problem.", "highlight": ["denn", "der Zug hatte"] },
+          { "speaker": "Muster", "de": "denn + der Zug + hatte eine technische Störung", "en": "denn connects two main clauses and keeps normal subject-verb word order.", "highlight": ["denn", "der Zug", "hatte"] },
+          { "speaker": "Mitarbeiterin", "de": "Der nächste Anschluss fährt erst in einer Stunde. Deshalb gebe ich Ihnen eine neue Verbindung.", "en": "The next connection leaves only in an hour. That's why I am giving you a new connection.", "highlight": ["Deshalb", "gebe", "ich"] },
+          { "speaker": "Warum passt das?", "de": "Deshalb nennt die Konsequenz: aus dem Problem folgt die neue Verbindung.", "en": "Deshalb fits because it introduces the consequence: the problem leads to a new connection.", "highlight": ["Deshalb"] }
         ]
       },
       {
-        "title": "At the Hotel — Room Change",
-        "context": "A guest is requesting a different room at the hotel reception.",
+        "title": "Explaining Why a Flight Was Missed",
+        "context": "A traveler missed a flight after a delayed train and needs a clear explanation.",
         "lines": [
-          { "speaker": "Gast", "de": "Guten Abend. Ich möchte gerne das Zimmer wechseln, weil es zu laut ist.", "en": "Good evening. I would like to change rooms because it's too noisy.", "highlight": ["weil"] },
-          { "speaker": "Rezeptionistin", "de": "Das tut mir leid. Die Baustelle nebenan ist leider sehr laut, deswegen hatten wir heute schon mehrere Beschwerden.", "en": "I'm sorry. The construction site next door is unfortunately very loud, that's why we've already had several complaints today.", "highlight": ["deswegen"] },
-          { "speaker": "Gast", "de": "Gibt es ein ruhigeres Zimmer?", "en": "Is there a quieter room?" },
-          { "speaker": "Rezeptionistin", "de": "Ja, wir haben noch Zimmer auf der anderen Seite. Die sind ruhiger, denn sie zeigen zum Garten.", "en": "Yes, we still have rooms on the other side. They're quieter, for they face the garden.", "highlight": ["denn"] },
-          { "speaker": "Gast", "de": "Perfekt, deshalb nehme ich das gerne!", "en": "Perfect, that's why I'll gladly take it!", "highlight": ["deshalb"] }
+          { "speaker": "Reisender", "de": "Ich habe meinen Flug verpasst, weil mein Zug erst um 10:20 Uhr angekommen ist.", "en": "I missed my flight because my train did not arrive until 10:20.", "highlight": ["weil", "ist"] },
+          { "speaker": "Muster", "de": "weil + mein Zug + erst um 10:20 Uhr angekommen ist", "en": "The missed flight is explained by a subordinate weil-clause with the verb at the end.", "highlight": ["weil", "ist"] },
+          { "speaker": "Reisender", "de": "Die Sicherheitskontrolle war sehr voll. Deswegen konnte ich nicht mehr rechtzeitig zum Gate gehen.", "en": "Security was very crowded. That's why I could no longer get to the gate in time.", "highlight": ["Deswegen", "konnte", "ich"] },
+          { "speaker": "Muster", "de": "Deswegen + konnte + ich nicht mehr rechtzeitig zum Gate gehen", "en": "Deswegen occupies first position, so the verb konnte comes before the subject ich.", "highlight": ["Deswegen", "konnte", "ich"] },
+          { "speaker": "Mitarbeiterin", "de": "Ich verstehe. Der nächste Flug ist heute Abend, deshalb prüfe ich jetzt Ihre Umbuchung.", "en": "I understand. The next flight is this evening, so I am checking your rebooking now.", "highlight": ["deshalb", "prüfe", "ich"] },
+          { "speaker": "Warum passt das?", "de": "Deswegen erklärt die Folge des Problems; deshalb leitet die nächste Handlung ein.", "en": "Deswegen explains the result of the problem; deshalb introduces the next action.", "highlight": ["Deswegen", "deshalb"] }
         ]
       },
       {
-        "title": "Planning a Trip — Choosing a Destination",
-        "context": "Two friends are planning a vacation together.",
+        "title": "Changing a Booking at a Hotel",
+        "context": "A guest gives a reason for changing a booking without turning the exchange into a vocabulary list.",
         "lines": [
-          { "speaker": "Anna", "de": "Ich möchte nach Wien fahren, weil ich die Museen dort liebe.", "en": "I want to go to Vienna because I love the museums there.", "highlight": ["weil"] },
-          { "speaker": "Max", "de": "Hmm, Wien ist schön, aber ich war letztes Jahr schon dort. Deswegen würde ich lieber nach Hamburg fahren.", "en": "Hmm, Vienna is nice, but I was there last year already. That's why I'd rather go to Hamburg.", "highlight": ["Deswegen"] },
-          { "speaker": "Anna", "de": "Hamburg ist auch toll, denn es gibt dort den Hafen und tolle Restaurants.", "en": "Hamburg is great too, for there's the harbor and great restaurants there.", "highlight": ["denn"] },
-          { "speaker": "Max", "de": "Und die Elbphilharmonie! Daher wäre es auch kulturell interessant.", "en": "And the Elbphilharmonie! Hence it would be culturally interesting too.", "highlight": ["Daher"] },
-          { "speaker": "Anna", "de": "Okay, du hast mich überzeugt, deshalb buchen wir Hamburg!", "en": "Okay, you convinced me, that's why we'll book Hamburg!", "highlight": ["deshalb"] }
+          { "speaker": "Gast", "de": "Guten Abend. Ich möchte die Buchung ändern, weil mein Termin verschoben wurde.", "en": "Good evening. I would like to change the booking because my appointment was moved.", "highlight": ["weil", "wurde"] },
+          { "speaker": "Rezeption", "de": "Das ist möglich, denn wir haben am Freitag noch ein freies Zimmer.", "en": "That is possible, because we still have a free room on Friday.", "highlight": ["denn", "wir haben"] },
+          { "speaker": "Muster", "de": "denn + wir + haben am Freitag noch ein freies Zimmer", "en": "denn gives a reason while preserving normal main-clause order.", "highlight": ["denn", "wir", "haben"] },
+          { "speaker": "Gast", "de": "Sehr gut. Der Termin endet jetzt später, deshalb brauche ich das Zimmer eine Nacht länger.", "en": "Very good. The appointment now ends later, so I need the room for one more night.", "highlight": ["deshalb", "brauche", "ich"] },
+          { "speaker": "Warum passt das?", "de": "Weil gibt den Grund für die Änderung; deshalb zeigt die praktische Folge.", "en": "Weil gives the reason for the change; deshalb shows the practical consequence.", "highlight": ["Weil", "deshalb"] }
+        ]
+      },
+      {
+        "title": "Consequence and Next Action After a Cancellation",
+        "context": "A travel desk explains what happened and what the traveler should do next.",
+        "lines": [
+          { "speaker": "Mitarbeiterin", "de": "Der Flug wurde annulliert, weil es am Zielort ein Unwetter gibt.", "en": "The flight was cancelled because there is a storm at the destination.", "highlight": ["weil", "gibt"] },
+          { "speaker": "Mitarbeiterin", "de": "Wir buchen Sie auf den Flug morgen früh um, denn heute gibt es keine sichere Verbindung mehr.", "en": "We are rebooking you onto tomorrow morning's flight, because there is no safe connection left today.", "highlight": ["denn", "heute gibt"] },
+          { "speaker": "Reisender", "de": "Ich muss heute noch ins Hotel. Deswegen brauche ich eine schriftliche Bestätigung.", "en": "I still need to get to the hotel today. That's why I need written confirmation.", "highlight": ["Deswegen", "brauche", "ich"] },
+          { "speaker": "Mitarbeiterin", "de": "Natürlich. Daher stelle ich Ihnen sofort eine Bestätigung aus.", "en": "Of course. Therefore I will issue you a confirmation immediately.", "highlight": ["Daher", "stelle", "ich"] },
+          { "speaker": "Muster", "de": "Daher + stelle + ich Ihnen sofort eine Bestätigung aus", "en": "Daher works like deshalb and deswegen: it starts the result clause and triggers verb-subject inversion.", "highlight": ["Daher", "stelle", "ich"] },
+          { "speaker": "Warum passt das?", "de": "Daher klingt hier etwas formeller, aber nicht ausschließlich schriftlich.", "en": "Daher sounds somewhat more formal here, but it is not restricted to writing.", "highlight": ["Daher"] }
+        ]
+      },
+      {
+        "title": "Formal Travel Message",
+        "context": "A traveler writes to a booking office and chooses a more formal register.",
+        "lines": [
+          { "speaker": "Reisende", "de": "Sehr geehrte Damen und Herren, ich bitte um eine Umbuchung, weil mein Anschlussflug verlegt wurde.", "en": "Dear Sir or Madam, I request a rebooking because my connecting flight was rescheduled.", "highlight": ["weil", "wurde"] },
+          { "speaker": "Reisende", "de": "Ich kann den ursprünglichen Zug nicht erreichen, denn die neue Ankunftszeit liegt nach der Abfahrt.", "en": "I cannot reach the original train because the new arrival time is after the departure.", "highlight": ["denn", "die neue Ankunftszeit liegt"] },
+          { "speaker": "Reisende", "de": "Deshalb bitte ich um eine Verbindung am nächsten Morgen.", "en": "Therefore, I request a connection on the following morning.", "highlight": ["Deshalb", "bitte", "ich"] },
+          { "speaker": "Reisende", "de": "Die Änderung liegt außerhalb meines Einflusses. Daher bitte ich um eine kostenfreie Umbuchung.", "en": "The change is outside my control. Therefore, I request a free rebooking.", "highlight": ["Daher", "bitte", "ich"] },
+          { "speaker": "Muster", "de": "Daher + bitte + ich um eine kostenfreie Umbuchung", "en": "Daher tends to fit formal or written travel communication, while following the same inversion pattern.", "highlight": ["Daher", "bitte", "ich"] }
         ]
       }
     ],

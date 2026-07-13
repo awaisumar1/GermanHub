@@ -60,14 +60,7 @@ function getAllSearchableItems(): SearchableItem[] {
   return items;
 }
 
-function getNodeHref(slug: string, type: NodeType): string {
-  switch (type) {
-    case "concept": return `/concept/${slug}`;
-    case "word": return `/word/${slug}`;
-    case "theme": return `/theme/${slug}`;
-    default: return `/node/${type}/${slug}`;
-  }
-}
+import { getNodeHref } from "@/lib/routes";
 
 function getNodeColor(type: NodeType): string {
   const colors: Record<NodeType, string> = {
@@ -134,13 +127,21 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [items] = useState(getAllSearchableItems);
 
+  // Reset state on open
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
+    if (open) {
+      setQuery("");
+      setResults([]);
+      setSelectedIndex(0);
+    }
+  }
+
   // Focus input when opened
   useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 50);
-      setQuery("");
-      setResults([]);
-      setSelectedIndex(0);
     }
   }, [open]);
 

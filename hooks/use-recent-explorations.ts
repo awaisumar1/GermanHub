@@ -1,25 +1,40 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import type { RecentExploration } from "@/types";
 
 const STORAGE_KEY = "german-hub-explorations";
 const MAX_ITEMS = 10;
+const EMPTY_EXPLORATIONS: RecentExploration[] = [];
+
+let cachedRaw: string | null = null;
+let cachedParsed: RecentExploration[] = EMPTY_EXPLORATIONS;
 
 /**
  * Read explorations from localStorage.
  * Returns an empty array if localStorage is unavailable (SSR) or data is invalid.
  */
 function readFromStorage(): RecentExploration[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined") return EMPTY_EXPLORATIONS;
 
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
+    if (!raw) return EMPTY_EXPLORATIONS;
+
+    // Cache the parsed array to provide a stable reference for useSyncExternalStore
+    if (raw === cachedRaw) {
+      return cachedParsed;
+    }
+
     const parsed: unknown = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as RecentExploration[]) : [];
+    const newArray = Array.isArray(parsed) ? (parsed as RecentExploration[]) : EMPTY_EXPLORATIONS;
+
+    cachedRaw = raw;
+    cachedParsed = newArray;
+
+    return newArray;
   } catch {
-    return [];
+    return EMPTY_EXPLORATIONS;
   }
 }
 
@@ -32,10 +47,17 @@ function writeToStorage(items: RecentExploration[]): void {
 
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    window.dispatchEvent(new Event("local-storage"));
   } catch {
     // Storage full or unavailable — fail silently
   }
 }
+
+const subscribe = (callback: () => void) => {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("local-storage", callback);
+  return () => window.removeEventListener("local-storage", callback);
+};
 
 /**
  * Hook for managing recently explored nodes in localStorage.
@@ -45,30 +67,27 @@ function writeToStorage(items: RecentExploration[]): void {
  * - `clearExplorations()` — remove all stored explorations
  */
 export function useRecentExplorations() {
-  const [explorations, setExplorations] = useState<RecentExploration[]>([]);
-
-  // Hydrate from localStorage after mount (avoids SSR mismatch)
-  useEffect(() => {
-    setExplorations(readFromStorage());
-  }, []);
+  const explorations = useSyncExternalStore(
+    subscribe,
+    () => readFromStorage(),
+    () => EMPTY_EXPLORATIONS
+  );
 
   const addExploration = useCallback(
     (item: Omit<RecentExploration, "visitedAt">) => {
-      setExplorations((prev) => {
-        const now = new Date().toISOString();
-        const newItem: RecentExploration = { ...item, visitedAt: now };
+      const prev = readFromStorage();
+      const now = new Date().toISOString();
+      const newItem: RecentExploration = { ...item, visitedAt: now };
 
-        // Remove any existing entry with the same slug + type
-        const deduped = prev.filter(
-          (e) => !(e.slug === item.slug && e.type === item.type)
-        );
+      // Remove any existing entry with the same slug + type
+      const deduped = prev.filter(
+        (e) => !(e.slug === item.slug && e.type === item.type)
+      );
 
-        // Prepend the new item and cap at MAX_ITEMS
-        const updated = [newItem, ...deduped].slice(0, MAX_ITEMS);
+      // Prepend the new item and cap at MAX_ITEMS
+      const updated = [newItem, ...deduped].slice(0, MAX_ITEMS);
 
-        writeToStorage(updated);
-        return updated;
-      });
+      writeToStorage(updated);
     },
     []
   );
@@ -78,7 +97,6 @@ export function useRecentExplorations() {
   }, []);
 
   const clearExplorations = useCallback(() => {
-    setExplorations([]);
     writeToStorage([]);
   }, []);
 
